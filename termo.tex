@@ -204,12 +204,6 @@ table% xcolor option
             não pode ocorrer troca de matéria com a sua vizinhança
         \item Um sistema \textbf{isolado} é um sistema fechado que não interage de forma alguma
             com a sua vizinhança
-        \item O \textbf{estado} de um sistema é especificado pelos valores de certas grandezas
-            mensuráveis experimentalmente chamadas \textit{variáveis de estado} ou \textit{propriedades}
-        \item Exemplos de propriedades são a temperatura, a pressão exercida e o volume ocupado
-        \item Note que a energia transferida entre o sistema e sua vizinhança não é uma propriedade
-        \item Quando qualquer propriedade de um sistema varia, o estado do sistema varia e diz-se que o 
-            sistema está sofrendo um \textbf{processo}
     \end{itemize}
 \end{frame}
 
@@ -238,41 +232,49 @@ table% xcolor option
     \end{tcolorbox}
 \end{frame}
 
-\begin{frame}[c]
-    \centering
-    \includegraphics[width=0.9\textwidth]{images/Captura de tela de 2023-03-29 08-03-41.png}
-\end{frame}
+% \begin{frame}[c]
+%     \centering
+%     \includegraphics[width=0.9\textwidth]{images/Captura de tela de 2023-03-29 08-03-41.png}
+% \end{frame}
 
-\begin{frame}{Observações}
+\begin{frame}{Estado}
     \begin{itemize}
-        \item Uma grandeza é uma propriedade se, e somente se, sua mudança de valor
-            entre dois estados é independente do processo
-        \item Ou seja, se o valor de uma determinada grandeza depende dos detalhes do
-            processo e não apenas dos estados extremos, essa grandeza não pode ser uma propriedade
+        \item O \textbf{estado} de um sistema é especificado pelos valores de certas grandezas
+            mensuráveis experimentalmente chamadas \textbf{propriedades} ou \textit{variáveis de estado}
+        \item Uma grandeza é uma \textbf{propriedade} se, e somente se, sua mudança de valor
+            entre dois estados é independente do \textbf{processo}
+        \item Quando qualquer propriedade de um sistema varia, o estado do sistema varia e diz-se que o 
+            sistema está sofrendo um \textbf{processo}
+        \item Exemplos de propriedades são a temperatura, a pressão exercida e o volume ocupado
         \item Um sistema está em \textbf{equilíbrio} quando não há mudanças no valor de suas propriedades 
             \textit{após ser isolado}
+            \begin{center}
+                \vboxcorr{74pt}{\includegraphics[width=0.8\textwidth]{images/termo4.png}}
+            \end{center}
+            \pause
+        \item A energia transferida entre o sistema e sua vizinhança não é uma propriedade
+        \item Se o valor de uma determinada grandeza depende dos detalhes do
+            processo e não apenas dos estados extremos, essa grandeza não pode ser uma propriedade
     \end{itemize}
-    \centering
-    \includegraphics[width=0.8\textwidth]{images/termo4.png}
 \end{frame}
 
-\begin{frame}{Pergunta difícil}
-    \begin{minipage}{\textwidth}
-        Uma mistura de hidrogênio e oxigênio é isolada e deixada alcançar um estado de temperatura 
-        e pressão constantes. A mistura é explodida com uma centelha de energia desprezível e novamente
-        deixada atingir um estado de temperatura e pressão constantes
-    \end{minipage}
-    \begin{enumerate}
-        \item O estado inicial é um estado de equilíbrio? Explique
-        \item O estado final é um estado de equilíbrio? Explique
-    \end{enumerate}
-\end{frame}
+% \begin{frame}{Pergunta difícil}
+%     \begin{minipage}{\textwidth}
+%         Uma mistura de hidrogênio e oxigênio é isolada e deixada alcançar um estado de temperatura 
+%         e pressão constantes. A mistura é explodida com uma centelha de energia desprezível e novamente
+%         deixada atingir um estado de temperatura e pressão constantes
+%     \end{minipage}
+%     \begin{enumerate}
+%         \item O estado inicial é um estado de equilíbrio? Explique
+%         \item O estado final é um estado de equilíbrio? Explique
+%     \end{enumerate}
+% \end{frame}
 
 \begin{frame}{Princípio dos estados equivalentes}
 \begin{itemize}
     \item Existe uma propriedade \textit{intensiva} independente para cada forma pela qual a energia de um sistema pode ser variada independentemente 
     \item Formas de transferência de energia: calor + trabalho (várias formas)
-    \item Ou seja: o número de propriedades \textit{intensiva} independentes é igual  ao número de interações relevantes do sistema devido a trabalho mais um (calor)
+    \item Ou seja: o número de propriedades \textit{intensivas} independentes é igual  ao número de interações relevantes do sistema devido a trabalho mais um (calor)
 \end{itemize}
 \begin{block}
     {Sistema compressível simples}
@@ -351,60 +353,60 @@ table% xcolor option
 %     \end{center}
 % \end{frame}
 
-\begin{frame}[c]{Equação de estado para um fio sob tensão}
-    \[
-        L=L_0 \left[ 1+ \frac{\mathcal{F}}{YA}+\alpha (T-T_0) \right]
-    \]
-    onde 
-    \begin{itemize}
-        \item \(L\) é o comprimento do fio
-        \item \(L_0\) é o comprimento sob tensão nula à temperatura \(T_0\)
-        \item \(Y\) é o módulo de Young (\textit{propriedade relacionada a elasticidade})
-        \item \(A\) é a área da seção reta
-        \item \(\alpha\) é o coeficiente de dilatação linear
-        \item \(\mathcal{F}\) é a tensão
-    \end{itemize}
-\end{frame}
+% \begin{frame}[c]{Equação de estado para um fio sob tensão}
+%     \[
+%         L=L_0 \left[ 1+ \frac{\mathcal{F}}{YA}+\alpha (T-T_0) \right]
+%     \]
+%     onde 
+%     \begin{itemize}
+%         \item \(L\) é o comprimento do fio
+%         \item \(L_0\) é o comprimento sob tensão nula à temperatura \(T_0\)
+%         \item \(Y\) é o módulo de Young (\textit{propriedade relacionada a elasticidade})
+%         \item \(A\) é a área da seção reta
+%         \item \(\alpha\) é o coeficiente de dilatação linear
+%         \item \(\mathcal{F}\) é a tensão
+%     \end{itemize}
+% \end{frame}
 
-\begin{frame}{Cálculo...}
-    \begin{itemize}
-        \item A equação de estado de um sistema \(PVT\)\footnote{\(v\) e \(V\) são diferentes, por quê?} 
-            é uma relação entre \(P\), \(V\) e \(T\) em qualquer estado de equilíbrio do sistema
-        \item Há muitas outras propriedades no sistema e, possivelmente, outras equações de estado
-        \item O \textit{coeficiente de dilatação volumétrica} de um material é definido como
-            \[
-                \beta \equiv \frac{1}{V}\left(\frac{\partial V}{\partial T}\right)_P
-            \]
-        \item O \textit{coeficiente de compressão isotérmica} de um material é definido como
-            \[
-                \kappa \equiv -\frac{1}{V}\left(\frac{\partial V}{\partial P}\right)_T
-            \]
-        \item Como vimos em Cálculo, se \(V\)\footnote{na verdade, \(v\)...} é uma propriedade e \(V=V(P,T)\), temos
-            \[
-                dV = \frac{\partial V}{\partial T} dT + \frac{\partial V}{\partial P} dP 
-                \implies dv = \beta V dT - \kappa V dP
-            \]
-    \end{itemize}
-\end{frame}
+% \begin{frame}{Cálculo...}
+%     \begin{itemize}
+%         \item A equação de estado de um sistema \(PVT\)\footnote{\(v\) e \(V\) são diferentes, por quê?} 
+%             é uma relação entre \(P\), \(V\) e \(T\) em qualquer estado de equilíbrio do sistema
+%         \item Há muitas outras propriedades no sistema e, possivelmente, outras equações de estado
+%         \item O \textit{coeficiente de dilatação volumétrica} de um material é definido como
+%             \[
+%                 \beta \equiv \frac{1}{V}\left(\frac{\partial V}{\partial T}\right)_P
+%             \]
+%         \item O \textit{coeficiente de compressão isotérmica} de um material é definido como
+%             \[
+%                 \kappa \equiv -\frac{1}{V}\left(\frac{\partial V}{\partial P}\right)_T
+%             \]
+%         \item Como vimos em Cálculo, se \(V\)\footnote{na verdade, \(v\)...} é uma propriedade e \(V=V(P,T)\), temos
+%             \[
+%                 dV = \frac{\partial V}{\partial T} dT + \frac{\partial V}{\partial P} dP 
+%                 \implies dv = \beta V dT - \kappa V dP
+%             \]
+%     \end{itemize}
+% \end{frame}
 
-\begin{frame}
-    \begin{itemize}
-        \item Se a equação anterior for integrada de algum estado de referência
-            \(V_0\), \(P_0\), \(T_0\) até algum estado arbitrário
-            \(V\), \(P\), \(T\) obteremos
-            \[
-                \int_{V_0}^V = V-V_0 = \int_{T_0}^T \beta V dT
-                - \int_{P_0}^P \kappa V dP
-            \]
-        \item \textcolor{red}{Considerando} \(V\) constante  quando \(P\) e \(T\)
-            são variadas e, além disso, \(\beta\) e \(\kappa\) também
-            constantes, temos que
-            \[
-                V=V_0 [ 1+\beta (T-T_0) - \kappa (P-P_0)]
-            \]
-            \textcolor{red}{ou seja, é possível obter a equação de estado de um sólido ou líquido}
-    \end{itemize}
-\end{frame}
+% \begin{frame}
+%     \begin{itemize}
+%         \item Se a equação anterior for integrada de algum estado de referência
+%             \(V_0\), \(P_0\), \(T_0\) até algum estado arbitrário
+%             \(V\), \(P\), \(T\) obteremos
+%             \[
+%                 \int_{V_0}^V = V-V_0 = \int_{T_0}^T \beta V dT
+%                 - \int_{P_0}^P \kappa V dP
+%             \]
+%         \item \textcolor{red}{Considerando} \(V\) constante  quando \(P\) e \(T\)
+%             são variadas e, além disso, \(\beta\) e \(\kappa\) também
+%             constantes, temos que
+%             \[
+%                 V=V_0 [ 1+\beta (T-T_0) - \kappa (P-P_0)]
+%             \]
+%             \textcolor{red}{ou seja, é possível obter a equação de estado de um sólido ou líquido}
+%     \end{itemize}
+% \end{frame}
 
 \begin{frame}{Exercício 2-14}
     \centering
@@ -419,9 +421,9 @@ table% xcolor option
     \end{columns}
 \end{frame}
 
-\begin{frame}{Exercícios 2-17 e 2-18}
-    \includegraphics[width=\textwidth]{images/Captura de tela de 2023-04-12 13-41-26.png}
-\end{frame}
+% \begin{frame}{Exercícios 2-17 e 2-18}
+%     \includegraphics[width=\textwidth]{images/Captura de tela de 2023-04-12 13-41-26.png}
+% \end{frame}
 
 \begin{frame}{Trabalho na termodinâmica}
     \centering
