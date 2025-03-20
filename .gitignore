@@ -1,0 +1,12 @@
+*.aux
+*.pdf
+!images/*
+*.fls
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.fdb_latexmk
+*.synctex.gz
+*-eps-converted-to.pdf
