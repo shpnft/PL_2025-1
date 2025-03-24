@@ -1,0 +1,149 @@
+\documentclass[t,% Place text of slides at the (vertical) top of the slides
+brazilian,% Brazilian Portuguese, FTW!
+11pt,% Standard font size
+aspectratio=169,% Aspect ratio 16:9 (widescreen)
+table% xcolor option
+]{beamer}
+
+\setbeamercolor{footnote mark}{fg=red}
+
+\usetheme{Boadilla}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{frametitle continuation}{}
+\setbeamertemplate{page number in head/foot}[framenumber]
+\setbeamertemplate{enumerate items}[default]
+\setbeamertemplate{itemize items}[circle]
+\setbeamercovered{transparent}
+\setbeamerfont{frametitle}{size=\normalsize}
+
+\usepackage{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage{graphicx}
+\setkeys{Gin}{keepaspectratio}
+
+\usepackage{amssymb,amsfonts,amsmath}
+\usepackage{mathtools}
+
+\usepackage{siunitx}
+\sisetup{locale = FR}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\usepackage{pgffor}
+\usepackage{etoolbox}
+
+% \usepackage{colortbl}
+
+\usepackage{tcolorbox}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\newcommand{\esima}{\textordfeminine }
+\newcommand{\esimo}{\textordmasculine }
+
+\newcommand{\vboxcorr}[2]{%
+    \resizebox{!}{\totalheight-#1}{#2}%
+}
+\newcommand{\hboxcorr}[2]{%
+    \resizebox{\width-#1}{!}{#2}%
+}
+
+\DeclareMathOperator{\arctg}{arctg}
+\DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\arcsen}{arc sen}
+
+\def\Disciplina{Física Experimental III}
+\def\Professor{Rodrigo de Farias Gomes}
+\def\Periodo{Período 2025.1}
+
+\title{\Disciplina}
+\author{\Professor}
+\date{\Periodo}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Informações gerais}
+    \begin{itemize}
+        \item Nome: {\fontfamily{augie}\selectfont Rodrigo de Farias Gomes}
+        \item Telefone (somente mensagens): (92) 9 9405-1724
+        \item E-mail: shpnft@gmail.com
+        \item Sala: 201b, Bloco E (2\esimo{} pavimento)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}<1>[label=ementa]{Ementa de \Disciplina}
+    \begin{enumerate}
+        \item Resistores lineares e não lineares
+        \item Corrente elétrica induzidas
+        \item Curva de carga de um capacitor
+        \item Lei de Ohm e resistividade elétrica
+        \item Circuitos elétricos e Leis de Kirchoff
+        \item Efeito Joule e efeito termoelétrico
+        \item Demonstração da Força de Lorentz
+        \item Interações entre campos magnéticos e correntes elétricos
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Avaliação}
+    \begin{itemize}
+        \item A avaliação será na forma de 8 notas, sendo que a média dos 
+            exercícios escolares (\(ME\)) será dada por
+            \[
+                ME=\frac{N_1+N_2+N_3+N_4+N_5+N_6+N_7+N_8}{8}
+            \]
+        \item Se \(MEE \geq 8,0\), então a média final (\(MF\)) será igual à \(MEE\)
+        \item Se \(MEE < 8,0\), então
+            \[
+                MF=\frac{2\times MEE+PF}{3}
+            \]
+            onde PF é a nota da \textbf{prova final}
+        \item Se \(MF \geq 5,0\) e a frequência em sala for maior que 75\%, o aluno está aprovado
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Aulas}
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+            \begin{enumerate}
+                \item 17/03/25
+                \item 24/03/25
+                \item 31/03/25
+                \item 07/04/25
+                \item 14/04/25
+                \item 28/04/25
+                \item 05/05/25
+                \item 12/05/25
+                \item 19/05/25
+                \item 26/05/25
+            \end{enumerate}
+        \end{column}
+
+        \begin{column}{0.45\textwidth}
+            \begin{enumerate}\setcounter{enumi}{10}
+                \item 02/06/25
+                \item 09/06/25
+                \item 16/06/25
+                \item 23/06/25
+                \item 30/06/25
+                \item 07/07/25
+                \item 14/07/25
+            \end{enumerate}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\againframe<2>{ementa}
+
+\begin{frame}{Atividade 1}
+    \textit{A definir}
+\end{frame}
+\end{document}
