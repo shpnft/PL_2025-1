@@ -196,4 +196,174 @@ table% xcolor option
     \end{itemize}
 \end{frame}
 
+\begin{frame}{Fluidos}
+    \begin{itemize}
+        \item A definição mais elementar de fluido diz: ''Fluido é uma
+            substância que não tem uma forma própria, assume o formato do
+            recipiente''
+        \item Se o problema fundamental fosse apenas reconhecer os fluidos, a
+            definição apresentada seria perfeitamente suficiente para essa
+            finalidade
+        \item Entretanto, vamos montar uma definição baseada na tensão de
+            cisalhamento aplicada
+        \item Seja um sólido preso entre duas placas planas
+            \begin{center}
+                \hboxcorr{22pt}{\includegraphics[width=\textwidth]{images/Captura de tela de 2025-03-25 15-37-33.png}}
+            \end{center}
+        \item Nota-se que o sólido se deforma até alcançar uma posição de
+            equilíbrio estático
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item Agora vamos colocando-se um fluido entre as placas, ''assumindo''
+            que seja possível visualizar um certo volume \(ABCD\) do fluido
+            \begin{center}
+                \hboxcorr{22pt}{\includegraphics[width=\textwidth]{images/Captura de tela de 2025-03-25 15-42-52.png}}
+            \end{center}
+        \item \textbf{Princípio da Aderência}: Os pontos de um fluido, em
+            contato com uma superfície sólida, aderem aos pontos dela, com os
+            quais estão em contato
+        \item Ou seja,a velocidade do fluido em contato com a placa será a igual
+            a velocidade da placa
+        \item Ou seja, os fluidos se deformam continuamente
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item Ou seja, ''Fluido é uma substância que se deforma continuamente sob a ação
+            de uma tensão de cisalhamento, \textbf{por menor que ela seja}''
+        \item Existindo tensão cisalhante o fluido entra em movimento, ou seja, ocorre \textbf{escoamento}
+        \item Os fluidos se moldam ao formato dos recipientes que os contêm \footnote{Por quê?}
+        \item Um fluido é incompressível se, ao ser submetido a uma tensão normal, não há
+            variação volumétrica
+        \item Para um fluido em repouso, a tensão é exclusivamente normal, sendo seu valor
+            chamado de pressão estática \(p\) que, em um ponto, é igual em qualquer direção, ou seja
+            \[
+                \sigma_{xx}=
+                \sigma_{yy}=
+                \sigma_{zz}=-p
+            \]
+    \end{itemize}
+    \pause
+    \begin{block}{Problema 1.1 do livro texto}
+        Os líquidos e gases são fluidos, mas apresentam características diferentes. Descreva as propriedades
+        que diferenciam os gases dos líquidos
+    \end{block}
+\end{frame}
+
+\begin{frame}{Viscosidade}
+    \begin{itemize}
+        \item Vamos analisar um pouco mais o caso do fluido entre placas
+            \begin{center}
+                \hboxcorr{22pt}{\includegraphics[width=\textwidth]{images/Captura de tela de 2025-03-25 16-11-12.png}}
+            \end{center}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item Note que a diferença de velocidade \(v_1-v_2\) entre duas ''camadas'' do fluido pode ser
+            explicada pela tensão de cisalhamento \(\tau\)
+        \item Newton descobriu que em muitos fluidos \(\tau\) é proporcional a variação da velocidade com \(y\)
+            \[
+                \tau = \mu \frac{dv}{dy}
+            \]
+        \item Essa equação\footnote{No livro há um sinal negativo, mas vou
+            omiti-lo por enquanto} é conhecida como \textbf{Lei de Newton para
+            a Viscosidade} e \(\mu\) é a \textbf{viscosidade absoluta ou dinâmica}
+        \item Os fluidos que obedecem a essa lei são ditos \textbf{fluidos newtonianos}, enquanto que
+            os outros são chamados de \textbf{não newtonianos}
+        \item Aqui só vamos tratar de fluidos newtonianos
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item Podemos dizer que ''viscosidade é a propriedade que indica a maior ou menor dificuldade
+            do fluido escoar''
+        \item A viscosidade é causada fundamentalmente pela coesão intermolecular 
+            e pela \textit{transferência de momento linear} através do fluido
+        \item A viscosidade depende da temperatura, sendo que ela aumenta com a temperatura nos 
+            gases e diminui com a temperatura nos líquidos\footnote{No livro texto há uma explicação para isso na página 8}
+        \item No SI, a unidade da viscosidade absoluta é \(\si{Pa\cdot s}\)
+        \item A viscosidade cinemática do fluido é dada por
+            \[
+                \nu = \frac{\mu}{\rho}
+            \]
+            onde \(\rho\) é a massa específica do fluido. A unidade de \(\nu\) no SI é 
+            \(\si{m^2/s}\)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Problemas}
+    \begin{itemize}
+        \item [1.3] A figura 1.7 mostra o esquema de um escoamento de água entre duas placas
+            planas horizontais de grandes dimensões e separadas por uma distância \(d\) pequena.
+            A placa inferior permanece em repouso, enquanto a placa superior está em movimento com 
+            velocidade \(V_x\) constante, de forma que resulta uma distribuição linear de velocidade
+            de escoamento de água. Sendo a viscosidade da água \(\mu=\SI{1e-3}{Pa\cdot s}\), determine
+            \begin{enumerate}[a)]
+                \item o gradiente de velocidade de escoamento
+                \item a tensão de cisalhamento na placa superior
+            \end{enumerate}
+    \end{itemize}
+    \centering
+    \vboxcorr{115pt}{\includegraphics[height=\textheight]{images/Captura de tela de 2025-03-25 16-57-30.png}}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item [1.5] A figura 1.8 mostra um esquema de distribuição de
+            velocidade para um escoamento laminar de um fluido newtoniano,
+            totalmente desenvolvido \footnote{Escoamento totalmente
+            desenvolvido é aquele onde o perfil de velocidade não varia ao
+            longo do eixo do tubo}, num duto de seção circular de diâmetro
+            constante, dada por
+            \[
+                V_z(r) = V_\text{máx}\left[1-\left(\frac{r}{R}\right)^2\right]
+            \]
+            onde \(V_\text{máx}\) é a velocidade máxima do perfil (distribuição), que ocorre
+            no centro da seção, e \(R\) é o raio interno do duto
+
+            Sendo \(\mu\) a viscosidade dinâmica do fluido, determine 
+            \begin{enumerate}[a)]
+                \item a distribuição de tensões de cisalhamento \(\tau_{rz}\) no escoamento
+                \item a força por unidade de comprimento que o escoamento exerce sobre a parede 
+                    do duto
+            \end{enumerate}
+    \end{itemize}
+    \centering
+    \vboxcorr{161pt}{\includegraphics[height=\textheight]{images/Captura de tela de 2025-03-25 17-07-55.png}}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item[1.6] A figura 1.9 mostra um esquema de um escoamento laminar, totalmente desenvolvido e em
+            regime permanente, de um fluido newtoniano, entre duas placas paralelas e estacionárias, de 
+            grandes dimensões e separadas de uma distância \(h\) pequena. A distribuição de velocidade
+            de escoamento é dada por
+            \[
+                V_x (y) = V_\text{máx} \left[ 1-\left(\frac{2y}{h}\right)^2\right]
+            \]
+
+            Determine a força cisalhante, por unidade de área, exercida pelo escoamento sobre a placa superior.
+    \end{itemize}
+    \centering
+    \vboxcorr{130pt}{\includegraphics[height=\textheight]{images/Captura de tela de 2025-03-25 17-20-53.png}}
+\end{frame}
+
+\begin{frame}{Atividade 1}
+    \begin{itemize}
+        \item Vale 10\% da \(N_1\)
+        \item Individual
+        \item Leia as seções 1.8 e 1.9 do livro texto
+        \item Resolva os problemas 1.7, 1.8, 1.9 e 1.10
+        \item Data de entrega: 11/04/2025
+        \item Google Sala de Aula: 
+            https://classroom.google.com/c/NzYyNDc5OTQ1OTUx?cjc=\textcolor{blue}{mvcaim6v}
+    \end{itemize}
+\end{frame}
 \end{document}
