@@ -506,322 +506,491 @@ table% xcolor option
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Ciclo de Carnot e definição de temperatura}
+\newcommand{\diff}[2]{\left(\frac{\partial #1}{\partial #2}\right)}
+\begin{frame}{Calor específico com \(P=P(T,v)\)}
     \begin{itemize}
-        \item Na seção 4.7, podemos ver a demonstração da equação 4-47
+        \item Sendo \(u=u(T,v)\), temos que
             \[
-                \frac{Q_2}{Q_1} = \frac{T_2}{T_1} \tikzmark{bup}
+                du = \diff{u}{T}_v dT + \diff{u}{v}_T dv
             \]
-            \textit{para um gás ideal}
-        \item Mas, \textit{conforme pode ser visto na seção 5.2}, 
+        \item Como \(du = d'q-Pdv\), temos que
             \[
-                \frac{Q_2}{Q_1} = \frac{\phi(\theta_2)}{\phi(\theta_1)}
+                d'q=\diff{u}{T}_v dT + \left[ \diff{u}{v}_T + P\right] dv
             \]
-            onde \(\theta_2\) e \(\theta_1\) são temperaturas
-        \item Definindo \(T=A\phi(\theta)\), temos
+        \item No caso onde \(v=\text{constante}\), temos \(dv=0\) e \textit{definindo} 
+            \(d'q = c_v dT\), temos que
             \[
-                \frac{Q_2}{Q_1} = \frac{T_2}{T_1} \implies T=T_3 \frac{Q_2}{Q_1}
+                c_v = \diff{u}{T}_v
             \]
-            e com isso temos a definição de temperatura, ''sem o uso de termômetro'' \tikzmark{bop}
-
-            \only<2>{
-                \tikz[remember picture, overlay] \draw [red,->] (pic cs:bop) to[out=0,in=0] ([yshift=1ex] pic cs:bup);
-            }
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Entropia}
-    \begin{itemize}
-        \item Temos que os valores de \(Q_1\) e \(Q_2\) vistos anteriormente estão em \textit{módulo}
-            e, usando os valores com sinal, teríamos
+        \item \(c_v\) pode ser medido experimentalmente para um processo com
+            volume constante e a expressão acima pode ser usada para \textit{qualquer processo}:
             \[
-                \frac{T_2}{T_1}=-\frac{Q_2}{Q_1} \implies \frac{Q_1}{T_1} + \frac{Q_2}{T_2}=0
-            \]
-            \begin{center}
-                \includegraphics[height=\textheight-92pt-42pt]{images/Carnot-cycle-p-V-diagram.svg.png}
-            \end{center}
-        \item O resultado líquido de um processo \textit{reversível} cíclico pode ser 
-            aproximado, tão de perto quanto se queira, por um grande número de ciclos de Carnot,
-            todos percorridos no mesmo sentido
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \begin{itemize}
-        \item Ou seja
-            \[
-                \oint {\frac{d'Q_r}{T}} = 0
-            \]
-            onde o índice \(r\) indica que se trata de um processo reversível
-        \item Assim, apesar de \(d'Q\) não ser uma diferencial exata, a razão \(d'Q/T\) é
-        \item Assim, podemos definir uma propriedade chamada \textbf{entropia}, onde
-            \[
-                dS \equiv \frac{d'Q}{T}
-            \]
-        \item Independente do processo que leve um estado \(a\) a um estado \(b\), temos 
-            \[
-                \int_{a}^{b} dS=S_b - S_a = \Delta S
-            \]
-        \item Para um processo cíclico reversível, temos \(\Delta S=0\)
-        \item A entropia de um sistema é determinada \textit{a menos de uma constante arbitrária}
-
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Cálculo de \(\Delta S\)}
-    \begin{itemize}
-        \item Para um processo adiabático:
-        \item Para um processo isotérmico:
-        \item<3-> Para um processo a pressão/volume constante:
-        \item<4-> Resolva a questão 5.12
-    \end{itemize}
-    \begin{center}
-        \includegraphics<2>[height=\textheight-80pt-12pt]{images/Captura de tela de 2023-05-08 13-42-22.png}
-        \includegraphics<4>[width=\textwidth]{images/Captura de tela de 2023-05-08 13-51-38.png}
-    \end{center}
-\end{frame}
-
-\begin{frame}{O princípio do aumento da entropia}
-    \begin{center}
-        \includegraphics[height=\textheight-135pt]{images/Captura de tela de 2023-05-15 11-53-00.png}
-    \end{center}
-    \begin{itemize}
-        \only<1>{
-            \item Seja o processo apresentado na figura acima, onde a temperatura de
-                um corpo é aumentada de \(T_1\) para \(T_2\) por contato do corpo com
-                um único reservatório a uma temperatura \(T_2\)
-            \item Se o processo se realizar a pressão constante e a capacidade térmica 
-                puder ser considerada constante, então
-                \[
-                    \Delta S_\text{corpo} = C_P \ln{\frac{T_2}{T_1}}
-                \]
-            }
-            \only<2>{
-            \item Já o reservatório permanece com temperatura constante e o calor liberado
-                pode ser calculado por
-                \[
-                    Q=C_P (T_2 - T_1)
-                \]
-                e 
-                \[
-                    \Delta S_\text{reservatório} = -\frac{Q}{T_2} = -C_P \frac{T_2-T_1}{T_2}
-                \]
-            }
-            \only<3>{
-            \item A variação total da entropia do sistema corpo+reservatório é dada por
-                \[
-                    \Delta S = \Delta S_\text{corpo}+\Delta S_\text{reservatório}=
-                    C_P \left[\ln{\frac{T_2}{T_1}} - \frac{T_2-T_1}{T_2} \right]
-                \]
-            \item Fica como exercício mostrar que \(\Delta S\geq 0\)
-            }
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \begin{itemize}
-        \item Esse resultado é visto repetidamente na natureza: em todo processo
-            que se realize em um sistema isolado, a entropia do sistema ou aumenta 
-            (processo irreversível) ou permanece constante (processo reversível)
-        \item Enquanto a ''energia nunca pode ser criada ou destruída'', a ''entropia não
-            pode ser destruída, mas pode ser criada''
-        \item Ou seja, os únicos estados que podem ser atingidos a partir de um dado
-            estado inicial por processos adiabáticos são aqueles em que a entropia é
-            maior ou igual à do estado inicial
-        \item Resolva a questão 5.16
-        \item Resolva a questão 5.21
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Primeira e segunda leis combinadas}
-    \begin{itemize}
-        \item Temos que a primeira lei da termodinâmica na forma diferencial é dada por
-            \[
-                d'Q=dU+d'W
-            \]
-        \item Para um sistema \(PVT\), temos
-            \[
-                d'W=PdV
-            \]
-        \item A segunda lei ''define''
-            \[
-                dS = \frac{d'Q}{T}
-            \]
-        \item Assim, podemos escrever
-            \[
-                TdS=dU + PdV
-            \]
-
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Entalpia, Helmholtz e Gibbs}
-    \begin{itemize}
-        \item Além da energia interna \(U\), temos as seguintes \textit{funções}
-            \begin{gather*}
-                H=U+PV \\
-                F=U-TS \\
-                G=F+PV
-            \end{gather*}
-        \item O calor absorvido ou liberado durante uma mudança de fase (temperatura 
-            e pressão constantes) é igual a diferença entre as entalpias do sistema
-            nas duas fases
-        \item Em um processo \textit{à temperatura e volume constantes}, temos que o 
-            trabalho ''não PdV'' é menor que o decréscimo de \(F\)
-        \item Em um processo \textit{à temperatura e pressão constantes}, temos que o 
-            trabalho ''não PdV'' é menor que o decréscimo de \(G\)
-        \item Como \(F\) e \(G\) são relacionadas \textit{à parcela da energia disponível para virar trabalho},
-            elas são comumente chamadas de energias livres
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Diferenciais}
-    \begin{itemize}
-        \item Se são propriedades, têm diferenciais exatas:
-            \begin{gather*}
-                dU = TdS - PdV \\
-                dF = dU - TdS - SdT = -SdT - PdV \\
-                dG= dF + PdV + VdP = -SdT + VdP \\
-                dH = dU + PdV + VdP = TdS + VdP
-            \end{gather*}
-        \item E como vimos em Cálculo II:
-            \[
-                z=f(x,y) \implies dz = \frac{\partial z}{\partial x} dx + \frac{\partial z}{\partial y} dy
+                d'q=c_v dT+ \left[ \diff{u}{v}_T + P\right] dv
             \]
     \end{itemize}
 \end{frame}
 
 \begin{frame}
     \begin{itemize}
-        \item Ou seja:
+        \item \textit{Por exemplo}, seja um processo com \(P=\text{constante}\):
+            \[
+                c_P dT = c_v dT + \left[ \diff{u}{v}_T + P\right] dv \implies (c_P-c_v) dT = \left[ \diff{u}{v}_T + P\right] dv
+            \]
+        \item Como
+            \[
+                dv = \diff{v}{T}_P dT + \diff{v}{P}_T dP
+            \]
+        \item Temos que
+            \[
+                c_P-c_v = \left[ \diff{u}{v}_T + P\right] \diff{v}{T}_P
+            \]
+
+        % \item Por exemplo, para um gás ideal temos \(u=u(T)\) e \(Pv=RT\), logo
+        %     \[
+        %         c_P-c_v = R
+        %     \]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Calor específico com \(v=v(T,P)\)}
+    \begin{itemize}
+        \item Vimos que
+            \[
+                dh=d'q+vdP
+            \]
+        \item Sendo \(h=h(T,P)\), temos que
+            \[
+                dh=\diff{h}{T}_P dT+\diff{h}{P}_T dP \implies
+                d'q = \diff{h}{T}_P dT + \left[\diff{h}{P}_T-v\right] dP
+            \]
+        \item De forma análoga ao caso anterior, encontramos que
+            \[
+                c_P - c_v = -\left[\diff{h}{P}_T-v\right] \diff{P}{T}_v
+            \]
+            \pause
+        \item Resumindo
+            \[
+                c_P-c_v = \left[ \diff{u}{v}_T + P\right] \diff{v}{T}_{\textcolor{red}{P}}
+                = -\left[\diff{h}{P}_T-v\right] \diff{P}{T}_{\textcolor{blue}{v}}
+            \]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Calor específico com \(T=T(P,v)\)}
+    \begin{itemize}
+        \item Temos \(u=u(T,v)\) e
+            \[
+                du=\diff{u}{T}_v dT + \diff{u}{v}_T dv
+            \]
+        \item Mas \(T=T(P,v)\)
+            \[
+                dT=\diff{T}{P}_v dP+\diff{T}{v}_P dv
+            \]
+            ou seja
+            \[
+                \begin{split}
+                    du &=\left[{\color<2->{red}\diff{u}{T}_v \diff{T}{P}_v}\right] dP+
+                    \left[{\color<2->{blue}\diff{u}{T}_v\diff{T}{v}_P+\diff{u}{v}_T}\right] dv \\
+                    &={\color<2->{red}\diff{u}{P}_v} dP + {\color<2->{blue}\diff{u}{v}_P} dv
+                \end{split}
+            \]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item Analogamente, sendo \(h=h(T,P)\)
+            \[
+                dh=\diff{h}{T}_P dT + \diff{h}{P}_T dP
+            \]
+            e
+            \[
+                dT=\diff{T}{P}_v dP+\diff{T}{v}_P dv
+            \]
+        \item Temos que
+            \[
+                \begin{split}
+                    dh &= \left[{\color<2->{red}\diff{h}{T}_P \diff{T}{P}_v+\diff{h}{P}_T}\right] dP+
+                    \left[{\color<2->{blue}\diff{h}{T}_P \diff{T}{v}_P}\right] dv \\
+                    &={\color<2->{red}\diff{h}{P}_v} dP + {\color<2->{blue}\diff{h}{v}_P} dv
+                \end{split}
+            \]
+
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item De forma geral, considerando uma propriedade \(w=w(z,x)\) com \(z=(x,y)\), temos que
             \begin{align*}
-                    & \left(\frac{\partial U}{\partial S}\right)_V = T \qquad & \left(\frac{\partial U}{\partial V}\right)_S = -P \\
-                    & \left(\frac{\partial F}{\partial T}\right)_V = -S \qquad & \left(\frac{\partial F}{\partial V}\right)_T = -P \\
-                    & \left(\frac{\partial G}{\partial T}\right)_P = -S \qquad & \left(\frac{\partial G}{\partial P}\right)_T = V \\
-                    & \left(\frac{\partial H}{\partial S}\right)_P = T \qquad & \left(\frac{\partial H}{\partial P}\right)_S = V
+                \diff{w}{x}_y & = \diff{w}{z}_x \diff{z}{x}_y+\diff{w}{x}_z \\
+                \diff{w}{y}_x & = \diff{w}{z}_x \diff{z}{y}_x
             \end{align*}
-        \item Lembrando de Física III:
-            \[
-                E_x = \frac{\partial \phi}{\partial x} \qquad
-                E_y = \frac{\partial \phi}{\partial y} \qquad
-                E_z = \frac{\partial \phi}{\partial z} 
-            \]
-        \item Chamamos as grandezas \(U\), \(H\), \(F\) e \(G\) de potenciais termodinâmicos
+            \pause
+        \item Como 
+            \begin{align*}
+                c_v &= \diff{u}{T}_v  \text{ temos que }  \diff{u}{P}_v = c_v \diff{T}{P}_v \\
+                c_p &= \diff{h}{T}_p  \text{ temos que }  \diff{h}{v}_P = c_P \diff{T}{v}_P
+            \end{align*}
     \end{itemize}
 \end{frame}
 
-\begin{frame}[c]{Equação característica}
+\begin{frame}{Resumindo}
+    Temos que
+    \begin{align*}
+        c_P-c_v &= \left[ {\color<2->{red}\diff{u}{v}_T} + P\right] \diff{v}{T}_P \\
+        c_P - c_v &= -\left[{\color<2->{blue}\diff{h}{P}_T}-v\right] \diff{P}{T}_v \\
+        {\color<2->{red}\diff{u}{P}_v} & = c_v \diff{T}{P}_v \\
+        {\color<2->{blue}\diff{h}{v}_P} &= c_P \diff{T}{v}_P
+    \end{align*}
+\end{frame}
+
+\begin{frame}
     \begin{itemize}
-        \item A equação para um potencial termodinâmico em termos de \textit{variáveis características} é conhecida
-            como equação característica
-        \item \textbf{Todas as propriedades termodinâmicas podem ser obtidas pela derivação da equação característica}
-        \item Atividade: 
-            \begin{itemize}
-                \item Relações de Maxwell
-                \item Problema 7.3
-                \item Problema 7.8
-                \item Problema 7.8 com a expressão do problema 7.7
-                \item Problema 7.10
+        \item Temos que
+            \begin{align*}
+                dv&=\diff{v}{T}_P dT + \diff{v}{P}_T dP \\
+                dP&=\diff{P}{T}_v dT + \diff{P}{v}_T dv
+            \end{align*}
+        \item Eliminando \(dP\), temos
+            \[
+                \left[1-\diff{v}{P}_T \diff{P}{v}_T\right] dv =
+                \left[\diff{v}{P}_T \diff{P}{T}_v+\diff{v}{T}_P\right] dT
+            \]
+        \item Essa equação deve ser válida tanto para o caso \(dT=0\), 
+            \(dv\neq 0\) quanto para o caso \(dv=0\), \(dT\neq 0\). Logo
+            \[
+                \left.
+                \begin{aligned}
+                    1-\diff{v}{P}_T \diff{P}{v}_T &= 0 \\
+                    \diff{v}{P}_T \diff{P}{T}_v+\diff{v}{T}_P &=0
+                \end{aligned}
+                \qquad
+                \right\}
+                \implies
+                \diff{v}{P}_T\diff{P}{T}_v\diff{T}{v}_P=-1
+            \]
 
-            \end{itemize}
     \end{itemize}
 \end{frame}
 
-% \begin{frame}{Espontaneidade de um processo}
+% \begin{frame}{Ciclo de Carnot e definição de temperatura}
 %     \begin{itemize}
-%         \item Se um sistema está completamente isolado de suas vizinhanças, um processo
-%             será \textit{espontâneo} se a entropia do sistema aumentar
-%         \item E se o sistema \textit{não} está completamente isolado? Vimos na seção 7.4 que 
+%         \item Na seção 4.7, podemos ver a demonstração da equação 4-47
+%             \[
+%                 \frac{Q_2}{Q_1} = \frac{T_2}{T_1} \tikzmark{bup}
+%             \]
+%             \textit{para um gás ideal}
+%         \item Mas, \textit{conforme pode ser visto na seção 5.2}, 
+%             \[
+%                 \frac{Q_2}{Q_1} = \frac{\phi(\theta_2)}{\phi(\theta_1)}
+%             \]
+%             onde \(\theta_2\) e \(\theta_1\) são temperaturas
+%         \item Definindo \(T=A\phi(\theta)\), temos
+%             \[
+%                 \frac{Q_2}{Q_1} = \frac{T_2}{T_1} \implies T=T_3 \frac{Q_2}{Q_1}
+%             \]
+%             e com isso temos a definição de temperatura, ''sem o uso de termômetro'' \tikzmark{bop}
+
+%             \only<2>{
+%                 \tikz[remember picture, overlay] \draw [red,->] (pic cs:bop) to[out=0,in=0] ([yshift=1ex] pic cs:bup);
+%             }
+%     \end{itemize}
+% \end{frame}
+
+% \begin{frame}{Entropia}
+%     \begin{itemize}
+%         \item Temos que os valores de \(Q_1\) e \(Q_2\) vistos anteriormente estão em \textit{módulo}
+%             e, usando os valores com sinal, teríamos
+%             \[
+%                 \frac{T_2}{T_1}=-\frac{Q_2}{Q_1} \implies \frac{Q_1}{T_1} + \frac{Q_2}{T_2}=0
+%             \]
+%             \begin{center}
+%                 \includegraphics[height=\textheight-92pt-42pt]{images/Carnot-cycle-p-V-diagram.svg.png}
+%             \end{center}
+%         \item O resultado líquido de um processo \textit{reversível} cíclico pode ser 
+%             aproximado, tão de perto quanto se queira, por um grande número de ciclos de Carnot,
+%             todos percorridos no mesmo sentido
+%     \end{itemize}
+% \end{frame}
+
+% \begin{frame}
+%     \begin{itemize}
+%         \item Ou seja
+%             \[
+%                 \oint {\frac{d'Q_r}{T}} = 0
+%             \]
+%             onde o índice \(r\) indica que se trata de um processo reversível
+%         \item Assim, apesar de \(d'Q\) não ser uma diferencial exata, a razão \(d'Q/T\) é
+%         \item Assim, podemos definir uma propriedade chamada \textbf{entropia}, onde
+%             \[
+%                 dS \equiv \frac{d'Q}{T}
+%             \]
+%         \item Independente do processo que leve um estado \(a\) a um estado \(b\), temos 
+%             \[
+%                 \int_{a}^{b} dS=S_b - S_a = \Delta S
+%             \]
+%         \item Para um processo cíclico reversível, temos \(\Delta S=0\)
+%         \item A entropia de um sistema é determinada \textit{a menos de uma constante arbitrária}
+
+%     \end{itemize}
+% \end{frame}
+
+% \begin{frame}{Cálculo de \(\Delta S\)}
+%     \begin{itemize}
+%         \item Para um processo adiabático:
+%         \item Para um processo isotérmico:
+%         \item<3-> Para um processo a pressão/volume constante:
+%         \item<4-> Resolva a questão 5.12
+%     \end{itemize}
+%     \begin{center}
+%         \includegraphics<2>[height=\textheight-80pt-12pt]{images/Captura de tela de 2023-05-08 13-42-22.png}
+%         \includegraphics<4>[width=\textwidth]{images/Captura de tela de 2023-05-08 13-51-38.png}
+%     \end{center}
+% \end{frame}
+
+% \begin{frame}{O princípio do aumento da entropia}
+%     \begin{center}
+%         \includegraphics[height=\textheight-135pt]{images/Captura de tela de 2023-05-15 11-53-00.png}
+%     \end{center}
+%     \begin{itemize}
+%         \only<1>{
+%             \item Seja o processo apresentado na figura acima, onde a temperatura de
+%                 um corpo é aumentada de \(T_1\) para \(T_2\) por contato do corpo com
+%                 um único reservatório a uma temperatura \(T_2\)
+%             \item Se o processo se realizar a pressão constante e a capacidade térmica 
+%                 puder ser considerada constante, então
+%                 \[
+%                     \Delta S_\text{corpo} = C_P \ln{\frac{T_2}{T_1}}
+%                 \]
+%             }
+%             \only<2>{
+%             \item Já o reservatório permanece com temperatura constante e o calor liberado
+%                 pode ser calculado por
+%                 \[
+%                     Q=C_P (T_2 - T_1)
+%                 \]
+%                 e 
+%                 \[
+%                     \Delta S_\text{reservatório} = -\frac{Q}{T_2} = -C_P \frac{T_2-T_1}{T_2}
+%                 \]
+%             }
+%             \only<3>{
+%             \item A variação total da entropia do sistema corpo+reservatório é dada por
+%                 \[
+%                     \Delta S = \Delta S_\text{corpo}+\Delta S_\text{reservatório}=
+%                     C_P \left[\ln{\frac{T_2}{T_1}} - \frac{T_2-T_1}{T_2} \right]
+%                 \]
+%             \item Fica como exercício mostrar que \(\Delta S\geq 0\)
+%             }
+%     \end{itemize}
+% \end{frame}
+
+% \begin{frame}
+%     \begin{itemize}
+%         \item Esse resultado é visto repetidamente na natureza: em todo processo
+%             que se realize em um sistema isolado, a entropia do sistema ou aumenta 
+%             (processo irreversível) ou permanece constante (processo reversível)
+%         \item Enquanto a ''energia nunca pode ser criada ou destruída'', a ''entropia não
+%             pode ser destruída, mas pode ser criada''
+%         \item Ou seja, os únicos estados que podem ser atingidos a partir de um dado
+%             estado inicial por processos adiabáticos são aqueles em que a entropia é
+%             maior ou igual à do estado inicial
+%         \item Resolva a questão 5.16
+%         \item Resolva a questão 5.21
+%     \end{itemize}
+% \end{frame}
+
+% \begin{frame}{Primeira e segunda leis combinadas}
+%     \begin{itemize}
+%         \item Temos que a primeira lei da termodinâmica na forma diferencial é dada por
+%             \[
+%                 d'Q=dU+d'W
+%             \]
+%         \item Para um sistema \(PVT\), temos
+%             \[
+%                 d'W=PdV
+%             \]
+%         \item A segunda lei ''define''
+%             \[
+%                 dS = \frac{d'Q}{T}
+%             \]
+%         \item Assim, podemos escrever
+%             \[
+%                 TdS=dU + PdV
+%             \]
+
+%     \end{itemize}
+% \end{frame}
+
+% \begin{frame}{Entalpia, Helmholtz e Gibbs}
+%     \begin{itemize}
+%         \item Além da energia interna \(U\), temos as seguintes \textit{funções}
+%             \begin{gather*}
+%                 H=U+PV \\
+%                 F=U-TS \\
+%                 G=F+PV
+%             \end{gather*}
+%         \item O calor absorvido ou liberado durante uma mudança de fase (temperatura 
+%             e pressão constantes) é igual a diferença entre as entalpias do sistema
+%             nas duas fases
+%         \item Em um processo \textit{à temperatura e volume constantes}, temos que o 
+%             trabalho ''não PdV'' é menor que o decréscimo de \(F\)
+%         \item Em um processo \textit{à temperatura e pressão constantes}, temos que o 
+%             trabalho ''não PdV'' é menor que o decréscimo de \(G\)
+%         \item Como \(F\) e \(G\) são relacionadas \textit{à parcela da energia disponível para virar trabalho},
+%             elas são comumente chamadas de energias livres
+%     \end{itemize}
+% \end{frame}
+
+% \begin{frame}{Diferenciais}
+%     \begin{itemize}
+%         \item Se são propriedades, têm diferenciais exatas:
+%             \begin{gather*}
+%                 dU = TdS - PdV \\
+%                 dF = dU - TdS - SdT = -SdT - PdV \\
+%                 dG= dF + PdV + VdP = -SdT + VdP \\
+%                 dH = dU + PdV + VdP = TdS + VdP
+%             \end{gather*}
+%         \item E como vimos em Cálculo II:
+%             \[
+%                 z=f(x,y) \implies dz = \frac{\partial z}{\partial x} dx + \frac{\partial z}{\partial y} dy
+%             \]
+%     \end{itemize}
+% \end{frame}
+
+% \begin{frame}
+%     \begin{itemize}
+%         \item Ou seja:
+%             \begin{align*}
+%                     & \left(\frac{\partial U}{\partial S}\right)_V = T \qquad & \left(\frac{\partial U}{\partial V}\right)_S = -P \\
+%                     & \left(\frac{\partial F}{\partial T}\right)_V = -S \qquad & \left(\frac{\partial F}{\partial V}\right)_T = -P \\
+%                     & \left(\frac{\partial G}{\partial T}\right)_P = -S \qquad & \left(\frac{\partial G}{\partial P}\right)_T = V \\
+%                     & \left(\frac{\partial H}{\partial S}\right)_P = T \qquad & \left(\frac{\partial H}{\partial P}\right)_S = V
+%             \end{align*}
+%         \item Lembrando de Física III:
+%             \[
+%                 E_x = \frac{\partial \phi}{\partial x} \qquad
+%                 E_y = \frac{\partial \phi}{\partial y} \qquad
+%                 E_z = \frac{\partial \phi}{\partial z} 
+%             \]
+%         \item Chamamos as grandezas \(U\), \(H\), \(F\) e \(G\) de potenciais termodinâmicos
+%     \end{itemize}
+% \end{frame}
+
+% \begin{frame}[c]{Equação característica}
+%     \begin{itemize}
+%         \item A equação para um potencial termodinâmico em termos de \textit{variáveis características} é conhecida
+%             como equação característica
+%         \item \textbf{Todas as propriedades termodinâmicas podem ser obtidas pela derivação da equação característica}
+%         \item Atividade: 
 %             \begin{itemize}
-%                 \item Se \(V\) e \(T\) são constantes, então \(F_2 \leq F_1\)
-%                 \item Se \(P\) e \(T\) são constantes, então \(G_2 \leq G_1\)
+%                 \item Relações de Maxwell
+%                 \item Problema 7.3
+%                 \item Problema 7.8
+%                 \item Problema 7.8 com a expressão do problema 7.7
+%                 \item Problema 7.10
+
 %             \end{itemize}
 %     \end{itemize}
 % \end{frame}
 
-\begin{frame}{Teorema de Nernst }
-    \begin{itemize}
-        \item Nós vimos que
-            \[
-                H=U+PV \implies dH = dU + PdV + VdP \implies dH = d'Q+VdP \implies \Delta H = Q + V\Delta P
-            \]
-        \item Para uma reação química ocorrendo a pressão constante, temos \(\Delta H=Q\)
-        \item Suponha que a reação provoque um aumento de temperatura e que calor seja transferido para um reservatório
-            a uma temperatura \(T\). Assim:
-            \[
-                \Delta H = H_2 - H_1 = -Q
-            \]
-            onde \(H_1\) é a entalpia inicial do sistema, \(H_2\) é a entalpia final do sistema e \(-Q\) é o 
-            \textit{calor de reação}
-    \end{itemize}
-    \centering
-    \includegraphics[width=\textwidth-75pt]{images/Captura de tela de 2023-05-24 12-05-18.png}
-\end{frame}
+% % \begin{frame}{Espontaneidade de um processo}
+% %     \begin{itemize}
+% %         \item Se um sistema está completamente isolado de suas vizinhanças, um processo
+% %             será \textit{espontâneo} se a entropia do sistema aumentar
+% %         \item E se o sistema \textit{não} está completamente isolado? Vimos na seção 7.4 que 
+% %             \begin{itemize}
+% %                 \item Se \(V\) e \(T\) são constantes, então \(F_2 \leq F_1\)
+% %                 \item Se \(P\) e \(T\) são constantes, então \(G_2 \leq G_1\)
+% %             \end{itemize}
+% %     \end{itemize}
+% % \end{frame}
 
-% SVG path from Sarang:
-% https://upload.wikimedia.org/wikipedia/commons/a/ac/U%2B262D.svg
-\newcommand*{\hamsic}{%
-  \begingroup
-    \settoheight{\dimen0 }{H}%
-    \resizebox{!}{\dimen0 }{%
-      \tikz\fill svg[yscale=-1]{%
-        M67,80l13,19L130,65L108,52z%
-        M54,103A60,60 0 1,0 55,23A50,50 0 1,1 55,101z%
-        m0,0L14,160l19,10L64,110z%
-        M95,87l46,79l17,-12L108,79z%
-      };%
-    }%
-  \endgroup
-}
+% \begin{frame}{Teorema de Nernst }
+%     \begin{itemize}
+%         \item Nós vimos que
+%             \[
+%                 H=U+PV \implies dH = dU + PdV + VdP \implies dH = d'Q+VdP \implies \Delta H = Q + V\Delta P
+%             \]
+%         \item Para uma reação química ocorrendo a pressão constante, temos \(\Delta H=Q\)
+%         \item Suponha que a reação provoque um aumento de temperatura e que calor seja transferido para um reservatório
+%             a uma temperatura \(T\). Assim:
+%             \[
+%                 \Delta H = H_2 - H_1 = -Q
+%             \]
+%             onde \(H_1\) é a entalpia inicial do sistema, \(H_2\) é a entalpia final do sistema e \(-Q\) é o 
+%             \textit{calor de reação}
+%     \end{itemize}
+%     \centering
+%     \includegraphics[width=\textwidth-75pt]{images/Captura de tela de 2023-05-24 12-05-18.png}
+% \end{frame}
 
-\begin{frame}
-    \begin{itemize}
-        \item Podemos mostrar que 
-            \[
-                G=H-TS \implies G=H+T\left(\dfrac{\partial G}{\partial T}\right)_P
-                \implies \Delta G = \Delta H + T{\color{red}\left(\frac{\partial \Delta G}{\partial T}\right)_P}
-            \]
-            e vimos que para que o processo ''ocorra'' (assumindo \(A=0\) e
-            \(P\) e \(T\) constantes) temos \(G_2 \leq G_1\), ou seja, \(\Delta G \leq 0\)
-            (mais detalhes na seção 7.1 do livro base)
-        \item Nernst ''notou'' que em uma reação o valor de \(\Delta G\) se aproxima do valor de \(\Delta H\) a medida
-            que a temperatura diminui e propôs que
-            \[
-                \lim_{T \to 0} {\color{red}\left(\frac{\partial \Delta G}{\partial T} \right)_P} = 0
-            \]
-        \item Mas \(\left(\partial G / \partial T\right)_P =  -S\) e assim
-            \[
-                \lim_{T \to 0} {(S_1 - S_2)} = 0
-            \]
-            ou seja, \textbf{na vizinhança do zero absoluto, todas as reações em um líquido ou sólido
-            em equilíbrio interno ocorrem sem mudança na entropia}
-    \end{itemize}
-\end{frame}
+% % SVG path from Sarang:
+% % https://upload.wikimedia.org/wikipedia/commons/a/ac/U%2B262D.svg
+% \newcommand*{\hamsic}{%
+%   \begingroup
+%     \settoheight{\dimen0 }{H}%
+%     \resizebox{!}{\dimen0 }{%
+%       \tikz\fill svg[yscale=-1]{%
+%         M67,80l13,19L130,65L108,52z%
+%         M54,103A60,60 0 1,0 55,23A50,50 0 1,1 55,101z%
+%         m0,0L14,160l19,10L64,110z%
+%         M95,87l46,79l17,-12L108,79z%
+%       };%
+%     }%
+%   \endgroup
+% }
 
-\begin{frame}[c]{Terceira lei da Termodinâmica}
-     Em 1911, Planck propôs que \textbf{a entropia de toda substância sólida ou líquida em equilíbrio interno a 
-     zero absoluto é nula}:
-     \[
-         \lim_{T\to 0} S = 0
-     \]
- \end{frame}
+% \begin{frame}
+%     \begin{itemize}
+%         \item Podemos mostrar que 
+%             \[
+%                 G=H-TS \implies G=H+T\left(\dfrac{\partial G}{\partial T}\right)_P
+%                 \implies \Delta G = \Delta H + T{\color{red}\left(\frac{\partial \Delta G}{\partial T}\right)_P}
+%             \]
+%             e vimos que para que o processo ''ocorra'' (assumindo \(A=0\) e
+%             \(P\) e \(T\) constantes) temos \(G_2 \leq G_1\), ou seja, \(\Delta G \leq 0\)
+%             (mais detalhes na seção 7.1 do livro base)
+%         \item Nernst ''notou'' que em uma reação o valor de \(\Delta G\) se aproxima do valor de \(\Delta H\) a medida
+%             que a temperatura diminui e propôs que
+%             \[
+%                 \lim_{T \to 0} {\color{red}\left(\frac{\partial \Delta G}{\partial T} \right)_P} = 0
+%             \]
+%         \item Mas \(\left(\partial G / \partial T\right)_P =  -S\) e assim
+%             \[
+%                 \lim_{T \to 0} {(S_1 - S_2)} = 0
+%             \]
+%             ou seja, \textbf{na vizinhança do zero absoluto, todas as reações em um líquido ou sólido
+%             em equilíbrio interno ocorrem sem mudança na entropia}
+%     \end{itemize}
+% \end{frame}
 
- \begin{frame}
-     \centering
-     \includegraphics[height=\textheight-10pt]{images/Captura de tela de 2023-05-24 13-04-37.png}
- \end{frame}
+% \begin{frame}[c]{Terceira lei da Termodinâmica}
+%      Em 1911, Planck propôs que \textbf{a entropia de toda substância sólida ou líquida em equilíbrio interno a 
+%      zero absoluto é nula}:
+%      \[
+%          \lim_{T\to 0} S = 0
+%      \]
+%  \end{frame}
 
- \begin{frame}
-     \centering
-     \includegraphics[height=\textheight-10pt]{images/Captura de tela de 2023-05-24 13-10-31.png}
- \end{frame}
- \begin{frame}
-     \centering
-     \includegraphics[height=\textheight-10pt]{images/Captura de tela de 2023-05-24 13-16-35.png}
- \end{frame}
- \begin{frame}
-     \centering
-     \includegraphics[height=\textheight-10pt]{images/Captura de tela de 2023-05-24 13-19-17.png}
- \end{frame}
+%  \begin{frame}
+%      \centering
+%      \includegraphics[height=\textheight-10pt]{images/Captura de tela de 2023-05-24 13-04-37.png}
+%  \end{frame}
+
+%  \begin{frame}
+%      \centering
+%      \includegraphics[height=\textheight-10pt]{images/Captura de tela de 2023-05-24 13-10-31.png}
+%  \end{frame}
+%  \begin{frame}
+%      \centering
+%      \includegraphics[height=\textheight-10pt]{images/Captura de tela de 2023-05-24 13-16-35.png}
+%  \end{frame}
+%  \begin{frame}
+%      \centering
+%      \includegraphics[height=\textheight-10pt]{images/Captura de tela de 2023-05-24 13-19-17.png}
+%  \end{frame}
+
 
 \end{document}
