@@ -552,6 +552,42 @@ table% xcolor option
     \end{itemize}
 \end{frame}
 
+\begin{frame}{Problemas 4.2a e 4.2b  do livro texto}
+    \begin{itemize}
+        \item A equação de estado de um certo gás é 
+            \[
+                (P+b)v = RT
+            \]
+            e sua energia interna específica é dada por 
+            \[
+                u=aT+bv+u_0
+            \]
+            \begin{enumerate}[(a)]
+                \item Encontre \(c_v\)
+                \item Mostre que \(c_P -c_v = R\)
+            \end{enumerate}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Problema 4.1b do livro texto}
+    \begin{itemize}
+        \item Sabendo que 
+            \[
+                \left(P+\frac{a}{v^2}\right)(v-b)=RT
+            \]
+            e que
+            \[
+                u = c_v T - \frac{a}{v} + \text{constante}
+            \]
+            para um gás de van der Waals, mostre que 
+            \[
+                c_P -c_v = R\frac{1}{1-\frac{2a(v-b)^2}{RTv^3}}
+            \]
+            supondo que \(c_v\) seja constante
+    \end{itemize}
+\end{frame}
+
+
 \begin{frame}{Calor específico com \(v=v(T,P)\)}
     \begin{itemize}
         \item Vimos que
@@ -645,34 +681,27 @@ table% xcolor option
     \end{align*}
 \end{frame}
 
-\begin{frame}
-    \begin{itemize}
-        \item Temos que
-            \begin{align*}
-                dv&=\diff{v}{T}_P dT + \diff{v}{P}_T dP \\
-                dP&=\diff{P}{T}_v dT + \diff{P}{v}_T dv
-            \end{align*}
-        \item Eliminando \(dP\), temos
-            \[
-                \left[1-\diff{v}{P}_T \diff{P}{v}_T\right] dv =
-                \left[\diff{v}{P}_T \diff{P}{T}_v+\diff{v}{T}_P\right] dT
-            \]
-        \item Essa equação deve ser válida tanto para o caso \(dT=0\), 
-            \(dv\neq 0\) quanto para o caso \(dv=0\), \(dT\neq 0\). Logo
-            \[
-                \left.
-                \begin{aligned}
-                    1-\diff{v}{P}_T \diff{P}{v}_T &= 0 \\
-                    \diff{v}{P}_T \diff{P}{T}_v+\diff{v}{T}_P &=0
-                \end{aligned}
-                \qquad
-                \right\}
-                \implies
-                \diff{v}{P}_T\diff{P}{T}_v\diff{T}{v}_P=-1
-            \]
+% \begin{frame}
+%     \begin{itemize}
+%         \item Temos que
+%             \begin{align*}
+%                 dv&=\diff{v}{T}_P dT + \diff{v}{P}_T dP \\
+%                 dP&=\diff{P}{T}_v dT + \diff{P}{v}_T dv
+%             \end{align*}
+%         \item Eliminando \(dP\), temos
+%             \[
+%                 \left[1-\diff{v}{P}_T \diff{P}{v}_T\right] dv =
+%                 \left[\diff{v}{P}_T \diff{P}{T}_v+\diff{v}{T}_P\right] dT
+%             \]
+%         \item Usando o \textit{Teorema da Função Inversa}
+%             \[
+%                 \diff{v}{P}_T \diff{P}{T}_v+\diff{v}{T}_P =0
+%                 \implies
+%                 \diff{v}{P}_T\diff{P}{T}_v\diff{T}{v}_P=-1
+%             \]
 
-    \end{itemize}
-\end{frame}
+%     \end{itemize}
+% \end{frame}
 
 % \begin{frame}{Ciclo de Carnot e definição de temperatura}
 %     \begin{itemize}
