@@ -451,12 +451,12 @@ table% xcolor option
      \end{columns}
  \end{frame}
 
- \begin{frame}{Revisão de Física Geral II}
+ \begin{frame}<1>[label=bob1]{Revisão de Física Geral II}
      \centering
      \includegraphics[height=\textheight-28pt]{images/Captura de tela de 2025-04-02 16-54-56.png}
  \end{frame}
 
- \begin{frame}{Revisão de Física Geral II}
+ \begin{frame}<1>[label=bob2]{Revisão de Física Geral II}
      \begin{columns}[T]
          \begin{column}{0.5\textwidth}
              \includegraphics[width=\textwidth]{images/Captura de tela de 2025-04-02 16-55-06.png}
@@ -467,5 +467,75 @@ table% xcolor option
          \end{column}
      \end{columns}
  \end{frame}
+
+ \begin{frame}{Resolução da 3.12}
+     \begin{columns}[T]
+         \begin{column}{0.4\textwidth}
+             \begin{tikzpicture}
+                 \filldraw [red!25] (0,0) ++(150:3cm) arc (150:30:3cm);
+                 \filldraw [blue] (0,0) circle (2pt);
+                 \draw [blue, dashed] (0,0) -- node [above, midway] {r=1} (3cm,0);
+                 \draw [blue, dashed] (0,3cm) -- node[left,midway] {h} (0,1.5cm) ;
+                 \draw [blue, thick] (0,0) circle (3cm);
+             \end{tikzpicture}
+         \end{column}
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+         \begin{column}{0.55\textwidth}
+             \textit{Facilmente}\footnote{Na atividade essas contas devem ser explicadas: regra da cadeia
+             e do produto para a derivada e substituição trigonométrica para as integrais} podemos 
+             encontrar
+             \begin{align*}
+                 & A=\arccos{(1-h)}-(1-h)\sqrt{1-(1-h)^2} \\
+                 & dA = 2\sqrt{2h - h^2} \\
+                 & \int_0^2 2 h\sqrt{2h-h^2}\; dh = \pi \\
+                 & \int_0^2 2 h^2\sqrt{2h-h^2}\; dh =\frac{5\pi}{4} \\
+                 & F = 9.8 \times 1000 \times \pi = \SI{30787.6}{N} \\
+                 & F h_{cp} = \tau \implies h_{cp} = \frac{5}{4} = \SI{1.25}{m}
+             \end{align*}
+         \end{column}
+     \end{columns}
+ \end{frame}
+
+\begin{frame}{Forma \textit{mais simples} para calcular \(F\) e \(h_{cp}\)}
+    \begin{itemize}
+        \item Na seção 2.1 do livro do Brunetti é demonstrado que a força
+            \(F\) sobre uma superfície plana submersa é dada por
+            \[
+                F = \bar{p}{A}
+            \]
+            onde \(\bar{p}\) é a pressão no centro de gravidade CG \footnote{Centro de massa se
+            a gravidade é constante} e \(A\) é a área da superfície
+        \item Já na seção 2.11 do mesmo livro é demonstrado que a posição
+            vertical do centro de pressão (\(h_{cp}\)) é dada por
+            \[
+                h_{cp} = \bar{h}+\frac{\bar{I}}{\bar{h}A}
+            \]
+            onde \(\bar{h}\) é a posição do CG, \(\bar{I}\) é o momento de inércia
+            calculado em relação a um eixo que passa pelo CG da superfície
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[plain]{}
+    \centering
+    \vboxcorr{85pt}{\includegraphics[width=\textwidth]{images/tabela.pdf}}
+\end{frame}
+
+\againframe<2->{bob1}
+\againframe<2->{bob2}
+
+\begin{frame}{Revisão de Física Geral II}
+     \centering
+     \includegraphics[height=\textheight-28pt]{images/Captura de tela de 2025-04-08 17-54-32.png}
+\end{frame}
+
+\begin{frame}{revisão de física geral II}
+     \centering
+     \includegraphics[height=\textheight-28pt]{images/Captura de tela de 2025-04-08 17-54-50.png}
+\end{frame}
+
+\begin{frame}{revisão de física geral II}
+     \centering
+     \includegraphics[height=\textheight-28pt]{images/Captura de tela de 2025-04-08 17-56-49.png}
+\end{frame}
 
 \end{document}
