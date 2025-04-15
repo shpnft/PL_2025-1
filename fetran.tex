@@ -545,9 +545,84 @@ table% xcolor option
     \end{columns}
 \end{frame}
 
-\begin{frame}{Revisão de Física geral II (livro do White)}
-    \centering
-    \includegraphics[height=\textheight-28pt]{images/Captura de tela de 2025-04-09 17-32-25.png}
+% \begin{frame}{Revisão de Física geral II (livro do White)}
+%     \centering
+%     \includegraphics[height=\textheight-28pt]{images/Captura de tela de 2025-04-09 17-32-25.png}
+% \end{frame}
+
+\begin{frame}{Classificação de escoamentos}
+    \begin{itemize}
+        \item No escoamento laminar, o movimento do fluido se passa como se o
+            fluido tosse constituído de lâminas paralelas que deslizam umas em
+            relação às outras, sem ocorrer mistura macroscópica.
+        \item No escoamento turbulento, as partículas fluidas se movem em
+            trajetórias irregulares e ocorre mistura macroscópica
+        \item O tipo de escoamento pode ser ''determinado'' através do \textit{número de Reynolds}
+            \[
+                \text{Re} = \frac{\rho V D}{\mu}
+            \]
+            onde \(\rho\) é a massa específica do fluido, \(V\) é a velocidade média
+            de escoamento no duto, \(D\) é o diâmetro interno do duto e \(\mu\)
+            é a viscosidade dinâmica do fluido
+
+        \item A velocidade média é dada por
+            \[
+                V=\frac{Q}{A}
+            \]
+            onde \(Q\) é a vazão volumétrica e \(A\) é a área da seção transversal do tubo
+    \end{itemize}
 \end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item<+-> Por exemplo, para o escoamento por um tubo de \SI{5}{cm} de
+            diâmetro a que vazão volumétrica temos \(\text{Re} = 2300\) para (a) ar e
+            (b) água?
+        \item<+-> Sabendo que para o ar \(\rho=\SI{1.205}{kg/m^3}\) e
+            \(\mu = \SI{1.80e-5}{kg/m\cdot s}\), temos \(Q \approx \SI{350}{m^3/s}\)
+        \item<+-> Sabendo que para água \(\rho=\SI{998}{kg/m^3}\) e
+            \(\mu = \SI{1e-3}{kg/m\cdot s}\), temos \(Q \approx \SI{23.5}{m^3/s}\)
+
+        \item<+-> Para \(\text{Re} < 2100\), o escoamento, em geral, é laminar 
+
+        \item<.-> Para \(\text{Re} > 2500\), ocorre escoamento turbulento
+
+        \item<.-> Para \(2100 < \text{Re} < 2500\) o escoamento pode ser laminar ou
+            turbulento em função das condições ambientes, principalmente da
+            presença de vibrações no sistema
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Escoamento de entrada e estabelecido em um duto}
+    \centering
+    \includegraphics[width=\textwidth]{images/Captura de tela de 2025-04-15 16-23-56.png}
+\end{frame}
+
+\begin{frame}
+    \centering
+    \includegraphics[width=\textwidth]{images/Captura de tela de 2025-04-15 16-26-48.png}
+\end{frame}
+
+\begin{frame}{Exemplo 4.1: dedução da equação 4.3.7}
+    \begin{itemize}
+        \item Seja um elemento de volume fluido cilíndrico
+
+            \begin{center}
+                \includegraphics[width=\textwidth-25pt]{images/Captura de tela de 2025-04-15 16-33-57.png}
+            \end{center}
+
+        \item Sobre ele atuam a força resultante de pressão que causa o escoamento e
+            força de atrito viscoso devido às tensões cisalhantes
+            \[
+                \sum F_z = \Delta p \pi r^2 - 2\pi r L \tau_{rz} = 0 \implies 
+                \tau_{rz} =\frac{\Delta p}{2L} r = \alert<2->{-}\mu \frac{d V}{d r}
+            \]
+            onde \(V(r=0) \equiv V_\text{máx}\) e \(V(r=R) \equiv 0\)
+        \item Resolvendo a EDO encontramos \textit{facilmente} a equação 4.3.7
+
+    \end{itemize}
+\end{frame}
+
+
 
 \end{document}
