@@ -735,4 +735,112 @@ table% xcolor option
     \vboxcorr{28pt}{\includegraphics[width=\textwidth]{images/Captura de tela de 2025-04-29 17-35-44.png}}
 \end{frame}
 
+\begin{frame}{Equação de Bernoulli sem dissipação de energia mecânica}
+    \[
+        \rho g y_1 + \frac{1}{2} \rho V_1^2 + p_1 = 
+        \rho g y_2 + \frac{1}{2} \rho V_2^2 + p_2
+    \]
+    \textit{Essa equação} expressa a conservação de energia mecânica
+    ao longo de uma linha de corrente ou de um filete fluido (tubo de 
+    corrente com seção transversal pequena) em um escoamento com as seguintes restrições:
+    \begin{itemize}
+        \item permanente
+        \item fluido incompressível
+        \item sem efeitos viscosos
+        \item propriedades constantes nas seções transversais
+        \item sem troca de calor
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Equação de Bernoulli com perda de carga}
+    \[
+        y_1 + \frac{V_1^2}{2g}+\frac{p_1}{\rho g} = y_2 + \frac{V_2^2}{2g} + \frac{p_2}{\rho g}
+        +h_p
+    \]
+    onde \(h_p\) é a perda de carga
+
+    \textit{Essa equação} expressa a conservação de energia mecânica
+    ao longo de uma linha de corrente ou de um filete fluido (tubo de 
+    corrente com seção transversal pequena) em um escoamento com as seguintes restrições:
+    \begin{itemize}
+        \item permanente
+        \item fluido incompressível
+        \item propriedades constantes nas seções transversais
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Perda de carga}
+    \begin{itemize}
+        \item A perda de carga \(h_p\) corresponde à parcela de energia
+            mecânica do escoamento que é irreversivelmente convertida em
+            energia térmica por causa do atrito viscoso 
+
+        \item Considera-se a perda de carga total como a soma de dois tipos
+            diferentes de perda de carga
+            \begin{itemize}
+                \item perda de carga distribuída \(h_{pd}\) devido ao atrito viscoso
+                    ao longo da tubulação
+                \item perda de carga localizada ou acidental \(h_{pl}\) devido aos
+                    acessórios ou acidentes localizados em determinadas
+                    posições nas tubulações, tais como válvulas, variações na
+                    seção transversal, curvas, etc
+            \end{itemize}
+        \item A perda de carga distribuída pode ser calculada por meio da
+            equação de Darcy-Weisbach, que pode ser escrita como
+            \[
+                h_{pd} = f\frac{L}{D}\frac{V_\text{média}^2}{2g}
+            \]
+            onde \(f\) é um coeficiente de proporcionalidade conhecido como \textit{fator de atrito},
+            determinado experimentalmente, e
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Fator de atrito}
+    \begin{itemize}
+        \item O fator de atrito é função de dois parâmetros unidimensionais
+            \[
+                f=f\left(\text{Re},\frac{e}{D}\right)
+            \]
+            onde Re é o número de Reynolds e \(e/D\) é a rugosidade relativa do duto
+        \item A rugosidade da parede da tubulação \(e\) pode ser definida como a
+            altura média das saliências da superfície interna do duto
+        \item A rugosidade relativa \(e/D\) é o quociente entre a rugosidade e o diâmetro
+            interno do duto
+
+        \item Os fatores de atrito podem ser obtidos através do \textit{diagrama de Moody}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Diagrama de Moody}
+    \centering
+    \def\svgwidth{\textwidth-100pt}
+    \input{Moody_EN.pdf_tex}
+\end{frame}
+
+\begin{frame}{}
+    \begin{itemize} 
+        \item Para escoamentos laminares totalmente desenvolvidos em tubulações
+            de seção circular, temos que
+            \[
+                f=\frac{64}{\text{Re}}
+            \]
+        \item A perda de carga localizada \(h_{pl}\) pode ser obtida por meio da equação
+            \[
+                h_{pl} = K\frac{V_\text{média}^2}{2g}
+            \]
+            onde \(K\) é o coeficiente de perda de carga localizada determinado
+            experimentalmente e que pode ser encontrado em tabelas e manuais de 
+            hidráulica
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Exemplo 5.11}
+    \begin{minipage}{\textwidth}
+        Determine a perda de carga distribuída em um escoamento de água
+        (viscosidade \(\mu = \SI{0.001}{Pa\cdot s}\) e massa específica 
+        \(\rho = \SI{1000}{kg/m^3}\)) com vazão \(Q= \SI{0.02}{m^3/s}\) num duto,
+        com parede de ferro fundido, de seção circular com diâmetro \(D= \SI{10}{cm}\)
+        e comprimento \(L=\SI{300}{m}\)
+    \end{minipage}
+\end{frame}
 \end{document}

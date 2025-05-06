@@ -1,0 +1,105 @@
+\documentclass[12pt,a4paper,brazilian, fleqn]{article}
+
+\usepackage{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage{amssymb,amsfonts,amsmath}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections}
+
+%https://tex.stackexchange.com/a/100406
+%29.7 cm - 1cm - 1cm - 144.90/28.4 cm = 22.60 cm
+\usepackage[a4paper, totalheight=22.60cm,includeheadfoot,left=1.5cm, right=1.0cm, top=1cm]{geometry}
+\setlength{\headheight}{144.90pt}
+
+\setkeys{Gin}{keepaspectratio}
+
+\newcommand{\cabeca}{
+    \begin{tikzpicture}
+        \node(Logo) {\includegraphics[width=2.5cm]{logo.png}};
+        % \node(Logo) {\includegraphics[width=4.1cm]{logo.png}};
+
+        \node(Local) at (Logo.north east) [anchor=north west, yshift=-0.25cm,
+            align=center, execute at begin node=\setlength{\baselineskip}{3ex}]
+            {
+                \huge{\textbf{Universidade Federal do Amazonas}} \\
+                \large{\textbf{Instituto de Ciências Exatas e Tecnologia}} \\
+                \large{\textbf{\Description}}
+            };
+
+        \node(Ident) at (Local.south west) [anchor=north west, yshift=-0.25cm,
+            align=left, execute at begin node=\setlength{\baselineskip}{2em}]
+            {
+                Professor: {\fontfamily{augie}\selectfont \Professor} \\
+                Aluno(s):
+            };
+        % \draw [thick] (Logo.south west) -- ($(Logo.south west -| Local.south east)$);
+        % \draw [red] (Logo.north west) rectangle (Logo.south east);
+        % \draw [blue] (Local.north west) rectangle (Local.south east);
+        % \draw [green] (Ident.north west) rectangle (Ident.south east);
+    \end{tikzpicture}
+}
+
+\usepackage{fancyhdr}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[c]{\cabeca}
+\fancyfoot[r]{\fontfamily{augie}\selectfont Boa sorte!}
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\newcommand{\ratio}[1]{(#1\% da nota)}
+%-----------------------------------CUT HERE-----------------------------------
+
+\def\Description{Física II -- Prova 1}
+\def\Professor{Rodrigo de Farias Gomes}
+
+\usepackage{siunitx}
+\sisetup{locale = FR}
+
+\usepackage{tcolorbox}
+\tcbset{boxrule=0pt, top=0pt, bottom=0pt}
+
+\DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\tg}{tg}
+\usepackage{enumitem}
+
+\begin{document}
+
+\begin{tcolorbox}[colback=black!10, colframe=black!50, title=Observações]
+    \begin{itemize}
+        \item Todas as páginas com resposta devem ter o nome e matrícula do
+            aluno escritos com caneta no início (cabeçalho) ou no final
+            (rodapé). Páginas que não obedeçam a esse critério não serão usadas
+            na avaliação
+    \end{itemize}
+\end{tcolorbox}
+
+\vspace{2em}
+
+\begin{enumerate}
+    \item \ratio{25} Um andaime com \SI{60}{kg} de massa e \SI{4}{m} de comprimento é mantido
+        na horizontal por um cabo vertical em cada extremidade. Um lavador de 
+        janela, com \SI{70}{kg} de massa, está de pé no andaime a \SI{1.5}{m} de
+        distância de uma das extremidades. Qual é a tração (a) do cabo mais próximo
+        e (b) do cabo mais distante do trabalhador?
+
+    \item \ratio{25} Que pressão manométrica uma máquina deve produzir para sugar lama
+        com uma massa específica de \(\SI{1900}{kg/m^3}\) por um tubo e fazê-la 
+        subir \SI{2}{m}?
+
+    \item \ratio{25} Um bloco de madeira flutua em água doce com dois terços do volume
+        \(V\) submersos e em óleo com 95\% de \(V\) submerso. Determine a 
+        massa específica  (a) da madeira e (b) do óleo.
+
+    \item \ratio{25} Uma peça de ferro que contém certo número de cavidades pesa \SI{6000}{N}
+        no ar e \SI{5000}{N} na água. Qual é o volume total das cavidades?
+        A massa específica do ferro é \(\SI{7.87}{g/cm^3}\).
+\end{enumerate}
+
+\end{document}
