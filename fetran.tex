@@ -811,10 +811,19 @@ table% xcolor option
     \end{itemize}
 \end{frame}
 
+% \begin{frame}{Diagrama de Moody}
+%     \centering
+%     \def\svgwidth{\textwidth-100pt}
+%     \input{Moody_EN.pdf_tex}
+% \end{frame}
+
 \begin{frame}{Diagrama de Moody}
     \centering
-    \def\svgwidth{\textwidth-100pt}
-    \input{Moody_EN.pdf_tex}
+    \vboxcorr{82pt}{\includegraphics[width=\textwidth]{images/moody_from_white.png}}
+\end{frame}
+\begin{frame}{Rugosidades}
+    \centering
+    \vboxcorr{8pt}{\includegraphics[width=\textwidth]{images/Captura de tela de 2025-05-13 14-11-48.png}}
 \end{frame}
 
 \begin{frame}{}
@@ -842,5 +851,74 @@ table% xcolor option
         com parede de ferro fundido, de seção circular com diâmetro \(D= \SI{10}{cm}\)
         e comprimento \(L=\SI{300}{m}\)
     \end{minipage}
+
+    \vspace{1cm}
+    Observação: Segundo o livro, a rugosidade do ferro fundido é \SI{0.24}{mm}
 \end{frame}
+
+
+\begin{frame}{Equação de Colebrook}
+    \begin{itemize}
+        \item Os valores de \(f\) no diagrama de Moody para escoamentos
+            turbulentos\footnote{Para escoamentos laminares vimos que
+            \(f=64/\text{Re}\)} \textit{são obtidos} através da \textbf{equação
+            de Colebrook}
+            \[
+                \frac{1}{\sqrt{f}}=
+                -\num{2.0}\log_{10} \left(\frac{e/D}{\num{3.7}}+\frac{\num{2.51}}{\text{Re}\sqrt{f}}\right)
+            \]
+        \item Por exemplo, podemos determinar \(f\) para \(e = \SI{0.24}{mm}\),
+            \(D=\SI{10}{cm}\) e \(\text{Re}=\num{2.5e5}\) usando a biblioteca \textit{scipy} no
+            \textit{Python}
+    \end{itemize}
+    \centering
+    \includegraphics[width=\textwidth]{images/Captura de tela de 2025-05-13 14-30-50.png}
+\end{frame}
+
+\begin{frame}{Diagrama de Moody ou equação de Colebrook?}
+    \begin{itemize}
+        \item Se o problema envolve determinar a perda de carga \(h_{pd}\) ou o comprimento do tubo
+            \(L\), o diagrama de Moody é mais adequado pois basta achar o valor de \(f\) através dos valores
+            de \(e\), \(D\) e \(\text{Re}\) dados e usar a fórmula de Darcy-Weisbach
+            \[
+                h_{pd} = f\frac{L}{D}\frac{V_\text{média}^2}{2g}
+            \]
+        \item Já problemas onde se procura o valor da velocidade de escoamento \(V\) ou o diâmetro do tubo \(D\), o diagrama de Moody
+            não é adequado porque não sabemos \(D\) e/ou Re
+            \[
+                \text{Re} = \frac{\rho V D}{\mu}
+            \]
+
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Problemas do livro do White}
+    \includegraphics[height=\textheight-28pt]{images/Captura de tela de 2025-05-13 15-07-43.png}
+\end{frame}
+
+% \begin{frame}{Problemas do livro do White}
+%     \includegraphics[width=0.5\textwidth]{images/Captura de tela de 2025-05-13 17-16-19.png}
+% \end{frame}
+
+\begin{frame}{Problemas do livro do White}
+    \includegraphics[width=0.5\textwidth]{images/Captura de tela de 2025-05-13 17-30-22.png}
+\end{frame}
+
+\begin{frame}{Problemas do livro do White}
+    \includegraphics[height=\textheight-28pt]{images/Captura de tela de 2025-05-13 16-56-17.png}
+\end{frame}
+
+\begin{frame}{Problemas do livro do White}
+    \includegraphics[width=0.5\textwidth]{images/p59.png}
+
+    \includegraphics[width=0.5\textwidth]{images/Captura de tela de 2025-05-13 16-07-08.png}
+\end{frame}
+
+\begin{frame}{Problemas do livro do White}
+    \includegraphics[width=0.5\textwidth]{images/Captura de tela de 2025-05-13 17-02-19.png}
+
+    \vspace{\fill}
+    \tiny{\textit{Observação: Tem cálculo numérico}}
+\end{frame}
+
 \end{document}
