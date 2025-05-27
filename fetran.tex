@@ -963,4 +963,97 @@ table% xcolor option
 
     \end{itemize}
 \end{frame}
+
+\begin{frame}{Condução unidimensional de calor através de parede de uma camada}
+    \begin{itemize}
+        \item Seja uma parede plana, de espessura \(L\) e constituída de um
+            material com condutividade térmica \(k\) constante
+            \begin{center}
+                \begin{tikzpicture}
+                    \filldraw [black!20] (0,0) rectangle (2,3);
+                    \draw [<->] (0,1) -- (2,1) node [midway, above] {L};
+                    \filldraw (0,2) circle (1pt) node[right] {$T_0$};
+                    \filldraw (2,2) circle (1pt) node[left] {$T_L$};
+                    \draw [->] (0,3) -- (0,4) node [midway, left] {$y$};
+                    \draw [->] (2,0) -- (3,0) node [midway, below] {$x$};
+                \end{tikzpicture}
+            \end{center}
+        \item As superfícies da parede são mantidas às temperaturas \(T_0\) e
+            \(T_L\), constantes, sendo \(T_0 > T_L\)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item Temos que 
+            \[
+                q_x = -k \frac{dT}{dx} \implies \frac{1}{A}\frac{dQ}{dt}=-k \frac{dT}{dx}
+            \]
+        \item Considerando um \textit{regime permanente}, temos que a quantidade de calor
+            que atravessa a parede por unidade de tempo é constante 
+            \[
+                \frac{1}{A}\dot{Q_x}=-k \frac{dT}{dx} \implies
+                T(x) = T_0 - \frac{\dot{Q_x}}{kA} x
+            \]
+        \item Ou seja, temos uma distribuição linear de temperatura na parede
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Problemas\footnote{Não considerar os trechos marcados em vermelho}}
+    \centering
+    \begin{tikzpicture}
+        \node [inner sep=0] (A) {
+            \vboxcorr{74pt}{\includegraphics[width=\textwidth]{images/Captura de tela de 2025-05-27 15-48-58.png}}
+        };
+
+        \coordinate (X0) at ($(A.south west)!0.03!(A.south east)$);
+        \coordinate (X1) at ($(A.south west)!0.36!(A.south east)$);
+        \coordinate (Y0) at ($(A.north west)!0.26!(A.south west)$);
+        \coordinate (Y1) at ($(A.north west)!0.29!(A.south west)$);
+        \filldraw [red,opacity=0.5] (X0|-Y0) rectangle (X1|-Y1);
+
+        \coordinate (X0) at ($(A.south west)!0.53!(A.south east)$);
+        \coordinate (X1) at ($(A.south west)!0.96!(A.south east)$);
+        \coordinate (Y0) at ($(A.north west)!0.17!(A.south west)$);
+        \coordinate (Y1) at ($(A.north west)!0.20!(A.south west)$);
+        \filldraw [red,opacity=0.5] (X0|-Y0) rectangle (X1|-Y1);
+
+        \coordinate (X0) at ($(A.south west)!0.50!(A.south east)$);
+        \coordinate (X1) at ($(A.south west)!0.58!(A.south east)$);
+        \coordinate (Y0) at ($(A.north west)!0.20!(A.south west)$);
+        \coordinate (Y1) at ($(A.north west)!0.23!(A.south west)$);
+        \filldraw [red,opacity=0.5] (X0|-Y0) rectangle (X1|-Y1);
+    \end{tikzpicture}
+\end{frame}
+
+
+\begin{frame}{Condução unidimensional de calor através de parede cilíndrica}
+    \begin{itemize}
+        \item Seja um duto cilíndrico longo, de comprimento \(L\), com raio interno \(r_i\) e
+            raio externo \(r_e\) construído de um material com condutividade térmica \(k\) constante
+        \item As superfícies interna e externa do duto são mantidas às temperaturas \(T_i\) e \(T_e\),
+            respectivamente, constantes, sendo \(T_i > T_e\)
+            \begin{center}
+                \vboxcorr{152pt}{\includegraphics[height=\textheight]{images/Captura de tela de 2025-05-27 16-04-45.png}}
+            \end{center}
+        \item Considerando que a condução de calor é unidimensional na direção radial e em regime permanente,
+            \textit{facilmente} encontramos que
+            \[
+                T(r) = T_i - \frac{\dot{Q_r}}{2\pi k L} \ln\left(\frac{r}{r_i}\right)
+            \]
+
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Problemas}
+    \begin{columns}[T]
+        \begin{column}{0.45\textwidth}
+            \vboxcorr{57pt}{\includegraphics[width=\textwidth]{images/Captura de tela de 2025-05-27 16-28-16.png}}
+        \end{column}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \begin{column}{0.45\textwidth}
+            \hboxcorr{20pt}{\includegraphics[width=\textwidth]{images/Captura de tela de 2025-05-27 16-29-31.png}}
+        \end{column}
+    \end{columns}
+\end{frame}
 \end{document}
