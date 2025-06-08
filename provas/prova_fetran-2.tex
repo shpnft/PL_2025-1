@@ -1,0 +1,125 @@
+\documentclass[12pt,a4paper,brazilian]{article}
+
+\usepackage{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage{amssymb,amsfonts,amsmath}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections}
+
+%https://tex.stackexchange.com/a/100406
+%29.7 cm - 1cm - 1cm - 144.90/28.4 cm = 22.60 cm
+\usepackage[a4paper, totalheight=22.60cm,includeheadfoot,left=1.5cm, right=1.0cm, top=1cm]{geometry}
+\setlength{\headheight}{144.90pt}
+
+\setkeys{Gin}{keepaspectratio}
+
+\newcommand{\cabeca}{
+    \begin{tikzpicture}
+        \node(Logo) {\includegraphics[width=2.5cm]{logo.png}};
+        % \node(Logo) {\includegraphics[width=4.1cm]{logo.png}};
+
+        \node(Local) at (Logo.north east) [anchor=north west, yshift=-0.25cm,
+            align=center, execute at begin node=\setlength{\baselineskip}{3ex}]
+            {
+                \huge{\textbf{Universidade Federal do Amazonas}} \\
+                \large{\textbf{Instituto de Ciências Exatas e Tecnologia}} \\
+                \large{\textbf{\Description}}
+            };
+
+        \node(Ident) at (Local.south west) [anchor=north west, yshift=-0.25cm,
+            align=left, execute at begin node=\setlength{\baselineskip}{2em}]
+            {
+                Professor: {\fontfamily{augie}\selectfont \Professor} \\
+                Aluno(s):
+            };
+        % \draw [thick] (Logo.south west) -- ($(Logo.south west -| Local.south east)$);
+        % \draw [red] (Logo.north west) rectangle (Logo.south east);
+        % \draw [blue] (Local.north west) rectangle (Local.south east);
+        % \draw [green] (Ident.north west) rectangle (Ident.south east);
+    \end{tikzpicture}
+}
+
+\usepackage{fancyhdr}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[c]{\cabeca}
+\fancyfoot[r]{\fontfamily{augie}\selectfont Boa sorte!}
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\newcommand{\ratio}[1]{(#1\% da nota)}
+%-----------------------------------CUT HERE-----------------------------------
+
+\def\Description{Fenômenos de Transporte -- Prova 2}
+\def\Professor{Rodrigo de Farias Gomes}
+
+\usepackage{siunitx}
+\sisetup{locale = FR}
+
+\usepackage{tcolorbox}
+\tcbset{boxrule=0pt, top=0pt, bottom=0pt}
+
+\DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\tg}{tg}
+\usepackage{enumitem}
+\usepackage{calc}
+
+\begin{document}
+
+\begin{tcolorbox}[colback=black!10, colframe=black!50, title=Observações]
+    \begin{itemize}
+        \item Todas as páginas com resposta devem ter o nome e matrícula do
+            aluno escritos com caneta no início (cabeçalho) ou no final
+            (rodapé). Páginas que não obedeçam a esse critério não serão usadas
+            na avaliação
+    \end{itemize}
+\end{tcolorbox}
+
+\vspace{2em}
+
+\begin{enumerate}
+    \item \ratio{30} Considere um óleo em escoamento permanente e laminar,
+        totalmente desenvolvido, num duto de seção circular constante com
+        diâmetro interno \(D=\SI{0.12}{m}\). O perfil real de velocidade de 
+        escoamento é parabólico, dado pela equação
+        \[
+            V(r) = V_\text{máx}\left[1-\left(\frac{r}{R}\right)^2\right]
+        \]
+        sendo \(V_\text{máx} = \SI{0.2}{m/s}\) e \(R=D/2\). Determine a velocidade 
+        média e a vazão desse escoamento.
+
+    \item \ratio{35} Um líquido leve (\(\rho \approx \SI{950}{kg/m^3}\)) escoa
+        a uma velocidade média de \SI{10}{m/s} por um tubo liso de \SI{5}{cm}
+        de diâmetro. A pressão do fluido é medida em intervalos de \SI{1}{m}
+        ao longo do tubo, como se segue:
+
+        \begin{center}
+            \begin{tabular}{c|c|c|c|c|c|c|c}
+                \(x,~\si{m}\) & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+                \(p,~\si{kPa}\) & 304 & 273 & 255 & 240 & 226 & 212 & 198
+            \end{tabular}
+        \end{center}
+
+        Calcule (a) a perda de carga total, em metros; (b) a tensão
+        de cisalhamento na parede na região totalmente desenvolvida do
+        tubo e (c) o fator de atrito global.
+
+    \item \ratio{35} Os dados a seguir foram obtidos para o escoamento de 
+        \(\SI{20}{m^3/h}\) de água a \SI{20}{\celsius} por um tubo com forte 
+        corrosão, de \SI{7}{cm} de diâmetro, que está inclinado para baixo a um 
+        ângulo de \SI{8}{\degree}: \(p_1 = \SI{420}{kPa}\), \(z_1= \SI{12}{m}\),
+        \(p_2 = \SI{250}{kPa}\), \(z_2 = \SI{3}{m}\). Calcule (a) a rugosidade
+        relativa do tubo e (b) a variação percentual na perda de carga se o tubo 
+        fosse liso e a vazão a mesma.
+
+        \textit{Dados}: Para a água temos \(\mu = \SI{1e-3}{kg/m\cdot s}\) e
+        \(\rho \approx \SI{997}{kg/m^3} \)
+\end{enumerate}
+
+\end{document}
