@@ -1868,6 +1868,60 @@ table% xcolor option
     \includegraphics<+>[width=\textwidth]{images/Captura de tela de 2024-03-05 11-38-10.png}
 \end{frame}
 
+\begin{frame}{Entropia}
+    \begin{itemize}
+        \item Um ciclo reversível qualquer pode ser pensado como composto de
+            certo número de ciclos de Carnot, todos percorridos no mesmo
+            sentido
+        \item As porções adiabáticas de ciclos adjacentes, que coincidem, são
+            percorridas duas vezes, em sentidos contrários e seus efeitos
+            cancelam-se mutuamente.
+    \end{itemize}
+    \centering
+    \includegraphics<+>[height=\textheight-100pt]{images/termo12.jpg}
+
+    \includegraphics<+>[height=\textheight-100pt]{images/image_4199.jpg}
+
+    \tiny{Figura horrível que precisa ser redesenhada}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item Para um ciclo de Carnot, temos
+            \[
+                \frac{Q_f}{T_f}+\frac{Q_q}{T_q}=0
+            \]
+        \item E para um ciclo reversível qualquer temos
+            \[
+                \sum \frac{Q}{T} = 0 \implies \oint \frac{dQ}{T} = 0
+            \]
+
+        \item Com isso, podemos definir a \textit{variação de entropia}
+            \[
+                \Delta S = \int \frac{dQ}{T} \implies 
+                dS=\frac{dQ}{T}
+            \]
+        \item \textit{É fácil} mostrar que, para um gás ideal
+            \[
+                \Delta S= n R \ln\frac{V_f}{V_i} + n C_v \ln\frac{T_f}{T_i}
+                \quad \quad \text{(Equação 20-4 do livro)}
+            \]
+
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Exemplo qualitativo}
+    \centering
+    \includegraphics[width=\textwidth]{images/Captura de tela de 2025-06-23 12-59-44.png}
+\end{frame}
+
+\begin{frame}
+    \centering
+    \vboxcorr{20pt}{\includegraphics[width=\textwidth]{images/Captura de tela de 2025-06-23 13-10-42.png}}
+
+    \vboxcorr{15pt}{\includegraphics[width=\textwidth]{images/Captura de tela de 2025-06-23 13-10-54.png}}
+\end{frame}
+
 % \begin{frame}{Segunda lei da termodinâmica}
 %     \begin{block}{Enunciado de Kelvin}
 %         Nenhum sistema pode absorver calor de um único reservatório e
@@ -1936,6 +1990,7 @@ table% xcolor option
 %     \includegraphics[width=\textwidth-133pt*\real{1.74}]{images/figura_18-25.png}
 
 %     \textbf{FIGURA 18-25 Problemas 79, 80, 81 e 82}
+
 % \end{frame}
 
 \end{document}
