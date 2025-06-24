@@ -47,7 +47,9 @@ table% xcolor option
 \newcommand{\esimo}{\textordmasculine }
 
 \newcommand{\vboxcorr}[2]{%
-    \resizebox{!}{\totalheight-#1}{#2}%
+    \resizebox{!}{\totalheight-#1}{%
+        #2%
+        }%
 }
 \newcommand{\hboxcorr}[2]{%
     \resizebox{\width-#1}{!}{#2}%
@@ -1056,4 +1058,73 @@ table% xcolor option
         \end{column}
     \end{columns}
 \end{frame}
+
+\begin{frame}{Resistência térmica}
+    \begin{itemize}
+        \item \textit{Sabemos que} corrente elétrica num fio condutor \(I\) é a quantidade de carga 
+            elétrica que passa pela área da seção reta por unidade de tempo
+            \[
+                I = \frac{d\color{red}Q}{dt}
+            \]
+        \item \textit{Sabemos que} fluxo de calor \(\dot{Q}\) é a quantidade de calor que atravessa
+            uma superfície por unidade de tempo
+        \item \textit{Da mesma forma} que temos resistência elétrica podemos ''ter'' 
+            resistência térmica onde
+            \[
+                \dot{\color{blue}Q} = \frac{\Delta T}{\sum R_T}
+            \]
+        \item Definimos as resistências térmicas de uma parede plana com \textbf{convecção} no
+            contorno
+            \[
+                R_{T,\text{convecção}} = \frac{1}{hA} \quad \quad
+                R_{T,\text{condução}} = \frac{L}{kA}
+            \]
+            onde \(L\) é a espessura da parede, \(k\) é a condutividade térmica e
+            \(h\) é o coeficiente de transferência de calor por convecção
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[c]
+    \begin{itemize}
+        \item De forma análoga ao modelo elétrico, temos que resistências em
+            série se somam para dar a resistência equivalente e em paralelo
+            temos que a resistência equivalente é o recíproco da soma dos
+            recíprocos das resistências
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Problemas}
+    \centering
+    \vboxcorr{147pt}{
+        \shortstack{%
+            \includegraphics[width=\textwidth]{images/Captura de tela de 2025-06-24 15-13-40.png}\\%
+            \includegraphics[width=\textwidth]{images/Captura de tela de 2025-06-24 15-13-57.png}%
+            }
+        }
+\end{frame}
+
+\begin{frame}{Problemas}
+    \centering
+    \includegraphics[height=\textheight-28pt]{images/Captura de tela de 2025-06-24 15-40-03.png}
+\end{frame}
+
+\begin{frame}{Problemas}
+    \centering
+    \includegraphics[height=\textheight-28pt]{images/Captura de tela de 2025-06-24 15-43-56.png}
+\end{frame}
+
+\begin{frame}[c]{Resistência térmica para uma parede cilíndrica}
+    Temos que
+    \[
+        R_{T,\text{convecção}} = \frac{1}{2\pi r L h} \quad \quad
+        R_{T,\text{condução}} = \frac{1}{2\pi L k}\ln\left(\frac{r_e}{r_i}\right)
+    \]
+\end{frame}
+
+\begin{frame}{Problemas 8.8 e 8.9a}
+    \centering
+    \includegraphics[height=\textheight-28pt]{images/Captura de tela de 2025-06-24 16-45-05.png}
+\end{frame}
+
+
 \end{document}
