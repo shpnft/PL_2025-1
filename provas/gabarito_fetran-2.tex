@@ -1,0 +1,216 @@
+\documentclass[12pt,a4paper,brazilian]{article}
+
+\usepackage{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage{amssymb,amsfonts,amsmath}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections}
+
+%https://tex.stackexchange.com/a/100406
+%29.7 cm - 1cm - 1cm - 144.90/28.4 cm = 22.60 cm
+\usepackage[a4paper, totalheight=22.60cm,includeheadfoot,left=1.5cm, right=1.0cm, top=1cm]{geometry}
+\setlength{\headheight}{144.90pt}
+
+\setkeys{Gin}{keepaspectratio}
+
+\newcommand{\cabeca}{
+    \begin{tikzpicture}
+        \node(Logo) {\includegraphics[width=2.5cm]{logo.png}};
+        % \node(Logo) {\includegraphics[width=4.1cm]{logo.png}};
+
+        \node(Local) at (Logo.north east) [anchor=north west, yshift=-0.25cm,
+            align=center, execute at begin node=\setlength{\baselineskip}{3ex}]
+            {
+                \huge{\textbf{Universidade Federal do Amazonas}} \\
+                \large{\textbf{Instituto de Ciências Exatas e Tecnologia}} \\
+                \large{\textbf{\Description}}
+            };
+
+        \node(Ident) at (Local.south west) [anchor=north west, yshift=-0.25cm,
+            align=left, execute at begin node=\setlength{\baselineskip}{2em}]
+            {
+                Professor: {\fontfamily{augie}\selectfont \Professor} \\
+                Aluno(s):
+            };
+        % \draw [thick] (Logo.south west) -- ($(Logo.south west -| Local.south east)$);
+        % \draw [red] (Logo.north west) rectangle (Logo.south east);
+        % \draw [blue] (Local.north west) rectangle (Local.south east);
+        % \draw [green] (Ident.north west) rectangle (Ident.south east);
+    \end{tikzpicture}
+}
+
+\usepackage{fancyhdr}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[c]{\cabeca}
+\fancyfoot[r]{\fontfamily{augie}\selectfont Boa sorte!}
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\newcommand{\ratio}[1]{(#1\% da nota)}
+%-----------------------------------CUT HERE-----------------------------------
+
+\def\Description{Fenômenos de Transporte -- Prova 2}
+\def\Professor{Rodrigo de Farias Gomes}
+
+\usepackage{siunitx}
+\sisetup{locale = FR}
+
+\usepackage{tcolorbox}
+\tcbset{boxrule=0pt, top=0pt, bottom=0pt}
+
+\DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\tg}{tg}
+\usepackage{enumitem}
+\usepackage{calc}
+
+\begin{document}
+
+\begin{tcolorbox}[colback=black!10, colframe=black!50, title=Observações]
+    \begin{itemize}
+        \item Todas as páginas com resposta devem ter o nome e matrícula do
+            aluno escritos com caneta no início (cabeçalho) ou no final
+            (rodapé). Páginas que não obedeçam a esse critério não serão usadas
+            na avaliação
+    \end{itemize}
+\end{tcolorbox}
+
+\vspace{2em}
+
+\begin{enumerate}
+    \item \ratio{30} Considere um óleo em escoamento permanente e laminar,
+        totalmente desenvolvido, num duto de seção circular constante com
+        diâmetro interno \(D=\SI{0.12}{m}\). O perfil real de velocidade de 
+        escoamento é parabólico, dado pela equação
+        \[
+            V(r) = V_\text{máx}\left[1-\left(\frac{r}{R}\right)^2\right]
+        \]
+        sendo \(V_\text{máx} = \SI{0.2}{m/s}\) e \(R=D/2\). Determine a velocidade 
+        média e a vazão desse escoamento.
+
+    \item \ratio{35} Um líquido leve (\(\rho \approx \SI{950}{kg/m^3}\)) escoa
+        a uma velocidade média de \SI{10}{m/s} por um tubo liso de \SI{5}{cm}
+        de diâmetro. A pressão do fluido é medida em intervalos de \SI{1}{m}
+        ao longo do tubo, como se segue:
+
+        \begin{center}
+            \begin{tabular}{c|c|c|c|c|c|c|c}
+                \(x,~\si{m}\) & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+                \(p,~\si{kPa}\) & 304 & 273 & 255 & 240 & 226 & 212 & 198
+            \end{tabular}
+        \end{center}
+
+        Calcule (a) a perda de carga total, em metros; (b) a tensão
+        de cisalhamento na parede na região totalmente desenvolvida do
+        tubo e (c) o fator de atrito global.
+
+    \item \ratio{35} Os dados a seguir foram obtidos para o escoamento de 
+        \(\SI{20}{m^3/h}\) de água a \SI{20}{\celsius} por um tubo com forte 
+        corrosão, de \SI{7}{cm} de diâmetro, que está inclinado para baixo a um 
+        ângulo de \SI{8}{\degree}: \(p_1 = \SI{420}{kPa}\), \(z_1= \SI{12}{m}\),
+        \(p_2 = \SI{250}{kPa}\), \(z_2 = \SI{3}{m}\). Calcule (a) a rugosidade
+        relativa do tubo e (b) a variação percentual na perda de carga se o tubo 
+        fosse liso e a vazão a mesma.
+
+        \textit{Dados}: Para a água temos \(\mu = \SI{1e-3}{kg/m\cdot s}\) e
+        \(\rho \approx \SI{997}{kg/m^3} \)
+\end{enumerate}
+
+\newpage
+\def\Description{Fenômenos de Transporte -- Gabarito}
+
+\begin{enumerate}
+    \item Temos que 
+        \[
+            V_\text{média}=\frac{V_\text{máx}}{2}=\frac{\SI{0.2}{m/s}}{2} = \SI{0.1}{m/s}
+        \]
+        e que
+        \[
+            Q=V_\text{média} A = \num{0.1} \pi \frac{\num{0.12}^2}{4} = \SI{1.13e-3}{m^3/s}
+        \]
+
+    \item%
+        \begin{enumerate}
+            \item Temos que
+                \[
+                    h_p = \frac{\Delta p}{\rho g} = \frac{304-198}{950 \cdot \num{9.81}}\times 10^3 =
+                    \SI{11.37}{m}
+                \]
+
+            \item A região totalmente desenvolvida apresenta velocidade média constante, ou seja,
+                \(\Delta p/\Delta L\) deve ser constante, pois
+                \[
+                    \frac{\Delta p}{\Delta L}=f\frac{\rho V^2}{2D}
+                \]
+
+                Olhando para os dados, isso ocorre a partir de \(x=
+                \SI{3}{m}\), quando \(\Delta p/\Delta L\) se estabiliza em
+                \SI{14}{kPa} por metro.
+
+                Para que o fluido não seja ''acelerado'', temos que ter
+                \[
+                    \sum F = 0 \implies \Delta p (\pi R^2) - \tau (2\pi R \Delta L) =0 \implies
+                    \tau = \frac{\Delta p R}{2\Delta L}
+                \]
+                ou seja, usando os dado do enunciado, \(\tau = \SI{175}{Pa}\)
+
+            \item Temos que 
+                \[
+                    \frac{\Delta p}{\Delta L}=f\frac{\rho V^2}{2D} \implies
+                    f = \frac{\Delta p}{\rho g}\frac{2 g D}{\Delta L V^2} 
+                \]
+                Usando os dados do item (a) e do enunciado, temos que
+                \(f=\num{0.01859}\)
+        \end{enumerate}
+    \item%
+        \begin{enumerate}
+            \item Não temos variação de velocidade, de forma que
+                \[
+                    \frac{p_1}{\rho g}+z_1 = \frac{p_2}{\rho g}+z_2 + h_p
+                \]
+                Isolando \(h_p\)
+                \[
+                    h_p = \frac{p_1 - p_2}{\rho g} + (z_1-z_2)
+                \]
+                Substituindo os dados do enunciado, temos que \(h_p = \SI{26.38}{m}\).
+
+                Mas
+                \[
+                    h_p = f\frac{L}{d}\frac{V^2}{2g} \implies
+                    f = h_p \frac{d}{L}\frac{2g}{V^2}
+                \]
+                Como \(z_1 - z_2 = \SI{9}{m}\) e o ângulo de inclinação é \SI{8}{\degree}, temos 
+                que \(L=\SI{64.67}{m}\). 
+
+                Como \(Q=\SI{20}{m^3/h}\) e \(A=\pi D^2 /4 = \SI{3.85e-3}{m^2}\), temos que
+                \(V=\SI{1.44}{m/s}\)
+
+                Dessa forma, \(f=\num{0.27}\).
+
+                Além disso
+                \[
+                    Re = \frac{\rho V D}{\mu}
+                \]
+                Substituindo os valores, temos \(Re=\num{100498}\).
+
+                Usando o diagrama de Moody não é possível obter a rugosidade relativa do tubo
+                devido à alta corrosão (\(\epsilon/D > \num{0.1}\)). Usando a equação de Colebrook
+                 ou outra fórmula equivalente, encontramos que \(\epsilon/D \approx \num{0.40}\).
+
+            \item No caso de um tubo liso com \(Re = \num{100498}\), usando o diagrama de Moody
+                temos que \(f=\num{0.0175}\). Com esse fator de atrito, temos que 
+                \(h_p = \SI{1.7}{m}\) e aproximadamente uma queda de \SI{93.5}{\%} na perda
+                de carga.
+
+        \end{enumerate}
+
+
+          
+\end{enumerate}
+\end{document}
