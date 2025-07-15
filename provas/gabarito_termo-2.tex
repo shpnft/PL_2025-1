@@ -110,7 +110,7 @@
             g = -RT\ln(v/v_0) + Bv
         \]
         onde \(B\) é uma função de \(T\) somente. (a) Mostre explicitamente
-        que esta forma da função de Gibss não especifica completamente as 
+        que esta forma da função de Gibbs não especifica completamente as 
         propriedades do gás. (b) Que outra informação é necessária para que as 
         propriedades do gás possam ser completamente especificadas?
 
@@ -121,6 +121,7 @@
 
 \newpage
 \def\Description{Termodinâmica -- Gabarito}
+\newcommand{\diff}[2]{\left(\frac{\partial #1}{\partial #2}\right)}
 
 \begin{enumerate}
     \item Temos que
@@ -171,7 +172,29 @@
             c_vT\ln\frac{T}{T_0}-RT\ln\left(\frac{v-b}{v_0-b}\right)-s_0(T-T_0)+f_0
         \]
 
-    \item 
+    \item Temos que 
+        \[
+            g=f+Pv \implies \diff{g}{v}_T = \diff{f}{v}_T + P + v\diff{P}{v}_T
+        \]
+        Como \((\partial f/\partial v)_T = -P\)
+        \[
+            \diff{g}{v}_T = v\diff{P}{v}_T
+        \]
+        Assim
+        \[
+            \diff{P}{v}_T = -\frac{RT}{v^2}+\frac{B}{v}
+        \]
+        Integrando
+        \[
+            P = \frac{RT}{v}+B\ln\frac{v}{v_0} + O(T)
+        \]
+        onde \(O(T)\) é uma função indeterminada de \(T\). Dessa forma, respondendo ao item (a),
+        a função de Gibbs dada não especifica completamente as propriedades do gás já que a equação 
+        de estado obtida tem termos indeterminados.
+
+        Respondendo ao item (b), é necessário encontrar \((\partial P/\partial T)_v\) ou, de acordo com
+        as relações de Maxwell, \((\partial s/\partial v)_T\)
+
 
 \end{enumerate}
 
