@@ -1,0 +1,115 @@
+\documentclass[12pt,a4paper,brazilian]{article}
+
+\usepackage{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage{amssymb,amsfonts,amsmath}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections}
+
+%https://tex.stackexchange.com/a/100406
+%29.7 cm - 1cm - 1cm - 144.90/28.4 cm = 22.60 cm
+\usepackage[a4paper, totalheight=22.60cm,includeheadfoot,left=1.5cm, right=1.0cm, top=1cm]{geometry}
+\setlength{\headheight}{144.90pt}
+
+\setkeys{Gin}{keepaspectratio}
+
+\newcommand{\cabeca}{
+    \begin{tikzpicture}
+        \node(Logo) {\includegraphics[width=2.5cm]{logo.png}};
+        % \node(Logo) {\includegraphics[width=4.1cm]{logo.png}};
+
+        \node(Local) at (Logo.north east) [anchor=north west, yshift=-0.25cm,
+            align=center, execute at begin node=\setlength{\baselineskip}{3ex}]
+            {
+                \huge{\textbf{Universidade Federal do Amazonas}} \\
+                \large{\textbf{Instituto de Ciências Exatas e Tecnologia}} \\
+                \large{\textbf{\Description}}
+            };
+
+        \node(Ident) at (Local.south west) [anchor=north west, yshift=-0.25cm,
+            align=left, execute at begin node=\setlength{\baselineskip}{2em}]
+            {
+                Professor: {\fontfamily{augie}\selectfont \Professor} \\
+                Aluno(s):
+            };
+        % \draw [thick] (Logo.south west) -- ($(Logo.south west -| Local.south east)$);
+        % \draw [red] (Logo.north west) rectangle (Logo.south east);
+        % \draw [blue] (Local.north west) rectangle (Local.south east);
+        % \draw [green] (Ident.north west) rectangle (Ident.south east);
+    \end{tikzpicture}
+}
+
+\usepackage{fancyhdr}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[c]{\cabeca}
+\fancyfoot[r]{\fontfamily{augie}\selectfont Boa sorte!}
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\newcommand{\ratio}[1]{(#1\% da nota)}
+%-----------------------------------CUT HERE-----------------------------------
+
+\def\Description{Termodinâmica -- Prova Final}
+\def\Professor{Rodrigo de Farias Gomes}
+
+\usepackage{siunitx}
+\sisetup{locale = FR}
+
+\usepackage{tcolorbox}
+\tcbset{boxrule=0pt, top=0pt, bottom=0pt}
+
+\DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\tg}{tg}
+\usepackage{enumitem}
+
+\begin{document}
+
+\begin{tcolorbox}[colback=black!10, colframe=black!50, title=Observações]
+    \begin{itemize}
+        \item Todas as páginas com resposta devem ter o nome e matrícula do
+            aluno escritos com caneta no início (cabeçalho) ou no final
+            (rodapé). Páginas que não obedeçam a esse critério não serão usadas
+            na avaliação
+    \end{itemize}
+\end{tcolorbox}
+
+\vspace{2em}
+
+\begin{enumerate}
+    \item\ratio{30} A equação de estado de um certo gás é 
+        \[
+            (P+b)v = RT
+        \]
+        e sua energia interna específica é dada por 
+        \[
+            u=aT+bv+u_0
+        \]
+        \begin{enumerate}
+            \item Encontre \(c_v\)
+            \item Mostre que \(c_P -c_v = R\)
+        \end{enumerate}
+    \item\ratio{30} Em um só diagrama \(T-S\), esboce curvas para os seguintes processos
+        reversíveis para um gás ideal, começando do mesmo estado inicial: (a)
+        uma expansão isotérmica, (b) uma compressão adiabática, (c) uma expansão
+        isobárica e (d) um processo isocórico em que é adicionado calor.
+
+    \item\ratio{40} Uma massa \(m\) de um líquido a uma temperatura \(T_1\) é misturada
+        com uma massa \(3m\) do mesmo líquido a uma temperatura \(T_2\).
+        O sistema está termicamente isolado. Mostre que a variação de entropia do
+        universo é
+        \[
+            4 m c_P \ln\frac{\tau+3}{4\tau^{1/4}}
+        \]
+        onde \(\tau=T_1/T_2\).
+
+
+\end{enumerate}
+
+\end{document}

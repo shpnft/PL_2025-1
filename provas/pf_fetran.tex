@@ -1,0 +1,132 @@
+\documentclass[12pt,a4paper,brazilian]{article}
+
+\usepackage{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage{amssymb,amsfonts,amsmath}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections}
+
+%https://tex.stackexchange.com/a/100406
+%29.7 cm - 1cm - 1cm - 144.90/28.4 cm = 22.60 cm
+\usepackage[a4paper, totalheight=22.60cm,includeheadfoot,left=1.5cm, right=1.0cm, top=1cm]{geometry}
+\setlength{\headheight}{144.90pt}
+
+\setkeys{Gin}{keepaspectratio}
+
+\newcommand{\cabeca}{
+    \begin{tikzpicture}
+        \node(Logo) {\includegraphics[width=2.5cm]{logo.png}};
+        % \node(Logo) {\includegraphics[width=4.1cm]{logo.png}};
+
+        \node(Local) at (Logo.north east) [anchor=north west, yshift=-0.25cm,
+            align=center, execute at begin node=\setlength{\baselineskip}{3ex}]
+            {
+                \huge{\textbf{Universidade Federal do Amazonas}} \\
+                \large{\textbf{Instituto de Ciências Exatas e Tecnologia}} \\
+                \large{\textbf{\Description}}
+            };
+
+        \node(Ident) at (Local.south west) [anchor=north west, yshift=-0.25cm,
+            align=left, execute at begin node=\setlength{\baselineskip}{2em}]
+            {
+                Professor: {\fontfamily{augie}\selectfont \Professor} \\
+                Aluno(s):
+            };
+        % \draw [thick] (Logo.south west) -- ($(Logo.south west -| Local.south east)$);
+        % \draw [red] (Logo.north west) rectangle (Logo.south east);
+        % \draw [blue] (Local.north west) rectangle (Local.south east);
+        % \draw [green] (Ident.north west) rectangle (Ident.south east);
+    \end{tikzpicture}
+}
+
+\usepackage{fancyhdr}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[c]{\cabeca}
+\fancyfoot[r]{\fontfamily{augie}\selectfont Boa sorte!}
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\newcommand{\ratio}[1]{(#1\% da nota)}
+%-----------------------------------CUT HERE-----------------------------------
+
+\def\Description{Fenômenos de Transporte -- Prova Final}
+\def\Professor{Rodrigo de Farias Gomes}
+
+\usepackage{siunitx}
+\sisetup{locale = FR}
+
+\usepackage{tcolorbox}
+\tcbset{boxrule=0pt, top=0pt, bottom=0pt}
+
+\DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\tg}{tg}
+\usepackage{enumitem}
+\usepackage{calc}
+
+\begin{document}
+
+\begin{tcolorbox}[colback=black!10, colframe=black!50, title=Observações]
+    \begin{itemize}
+        \item Todas as páginas com resposta devem ter o nome e matrícula do
+            aluno escritos com caneta no início (cabeçalho) ou no final
+            (rodapé). Páginas que não obedeçam a esse critério não serão usadas
+            na avaliação
+    \end{itemize}
+\end{tcolorbox}
+
+\vspace{2em}
+
+\begin{enumerate}
+    \item \ratio{33} Considere uma placa plana de vidro de espessura \(L=\SI{1}{cm}\) e
+        condutividade térmica \(k_v = \SI{0.78}{W/m\cdot\celsius}\). A superfície
+        esquerda é mantida à temperatura \(T_0 = \SI{25}{\celsius}\), enquanto 
+        a superfície direita permanece com temperatura \(T_L = \SI{10}{\celsius}\).
+        Determine a densidade de fluxo de calor que atravessa a placa de vidro.
+
+    \item \ratio{33} A parede plana de um forno industrial é constituída de uma camada
+        de tijolos refratários de espessura \(L_1 = \SI{20}{cm}\) com condutividade 
+        térmica \(k_1 = \SI{1.05}{W/m\cdot\celsius}\) e uma camada externa de um material 
+        isolante com condutividade térmica \(k_2 = \SI{0.04}{W/m\cdot\celsius}\). O ar interno 
+        é mantido com temperatura \(T_\text{ar,i} = \SI{800}{\celsius}\), constante,
+        com coeficiente de transferência de calor por convecção \(h_i = \SI{30}{W/{m^2}\cdot\celsius}\).
+        Considerando contato térmico perfeito entre os materiais sólidos, determine a 
+        espessura \(L_2\) da camada de isolante para que a temperatura da superfície
+        externa da parede do forno seja \(T_\text{e}= \SI{40}{\celsius}\) com uma perda
+        de calor do forno para o ar ambiente de \(\SI{500}{W/m^2}\).
+
+    \item \ratio{34} A figura abaixo mostra um esquema do fundo de uma cafeteira 
+        elétrica constituído de uma parede plana, composta de uma chapa de aço com
+        espessura \(L_A = \SI{2}{mm}\) e condutividade térmica \(k_A = \SI{40}{W/m\cdot\celsius}\),
+        e de uma chapa de isolante com espessura \(L_I = \SI{4}{mm}\) e condutividade térmica
+        \(k_I = \SI{0.06}{W/m\cdot\celsius}\). Entre as placas de aço e isolante há uma resistência 
+        elétrica que dissipa uma potência de \SI{800}{W}. Considere a situação de regime
+        permanente com a água em ebulição à temperatura \(T_\text{água}= \SI{100}{\celsius}\) e
+        com coeficiente de transferência de calor por convecção \(h_\text{água}=\SI{3000}{W/{m^2}\cdot\celsius}\),
+        enquanto o ar ambiente que está em contato com o isolante permanece com temperatura
+        \(T_\text{ar} = \SI{25}{\celsius}\) e coeficiente de transferência de calor por
+        convecção \(h_\text{ar} = \SI{10}{W/{m^2}\cdot\celsius} \). Considerando um contato térmico 
+        perfeito entre a resistência elétrica e as chapas de aço e de isolante e que o fundo da cafeteira
+        tem área \(A=\SI{0.018}{m^2}\), determine
+        \begin{enumerate}
+            \item temperatura \(T_R\) da resistência elétrica; e
+            \item o fluxo de calor \(Q_\text{ar}\) perdido para o ar através da chapa
+                isolante.
+
+        \end{enumerate}
+
+        \centering
+        \begin{tikzpicture}
+            \draw [fill=black!15]  (0,2) rectangle (10,3) node [midway] {Aço};
+            \draw [fill=black!30] (0,1) rectangle (10,2) node [midway] {Resistência elétrica};
+            \draw [fill=black!45] (0,0) rectangle (10,1) node [midway] {Isolante};
+        \end{tikzpicture}
+\end{enumerate}
+
+\end{document}
